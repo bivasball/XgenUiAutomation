@@ -50,7 +50,7 @@ public class CommonAction implements Header {
 		}
 	}
 
-	public void clearText(By Object, String text) {
+	public void clearText(By Object) {
 		try {
 			WebElement el = driver.findElement(Object);
 			el.clear();
@@ -220,7 +220,7 @@ public class CommonAction implements Header {
 		driver.get(url);
 	}
 
-	protected ChromeDriver startChromeDriver() {
+	public ChromeDriver startChromeDriver() {
 		ChromeOptions options = new ChromeOptions();
 		options.setImplicitWaitTimeout(Duration.ofSeconds(1));
 		Map<String, Object> prefs = new HashMap<String, Object>();
@@ -234,7 +234,7 @@ public class CommonAction implements Header {
 		options.addArguments("--start-maximized");
 		// to disable the automation text
 		options.setExperimentalOption("useAutomationExtension", false);
-		options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+		//options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 		return startChromeDriver(options);
 	}
 
@@ -339,6 +339,11 @@ public class CommonAction implements Header {
 		System.out.println("Time taken to load a webpage: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
 	}
 	
-	
+	public void waitTillalertToastifyDisappears()  {
+		long startTime = System.currentTimeMillis();
+		explicitWait(By.xpath("//div[@role='alert' and @class='Toastify__toast-body']"), 30, "INVISIBILITY");
+		long estimatedTime = System.currentTimeMillis() - startTime;
+		System.out.println("Time taken to vanish Toastify Icon: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
+	}
 	
 }

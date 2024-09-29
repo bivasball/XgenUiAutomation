@@ -1,7 +1,7 @@
 @Story001
 Feature: Getting Started
 
-  @Testcase_01.1
+  @Testcase_01.1 @Regression
   Scenario: The login functionality of xGENBI user interface
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -10,8 +10,7 @@ Feature: Getting Started
     When the user select a subscription "TEST AUTOMATE" from the dropdown
     Then verify the user land to Welcome page "Welcome, Automation!"
 
-    
-    @Testcase_01.2
+  @Testcase_01.2 @Regression
   Scenario: The Logout functionality of xGENBI user interface
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password

@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		tags = "@Both", 
+		tags = "@Regression", 
 		features = "src/test/resources/features",
 		glue = "com/xgen/automation/definations",
 		plugin = {

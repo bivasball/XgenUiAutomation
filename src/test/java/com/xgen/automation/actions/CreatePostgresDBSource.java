@@ -90,10 +90,10 @@ public class CreatePostgresDBSource extends CommonAction implements CreatePostgr
 
 	public void the_user_enter_the_source_name_and_source_description(String source, String description) {
 		loadingWebPage();
-		clearText(inputsrcname, Constants.PostgreSQLsource);
+		clearText(inputsrcname);
 		enterText(inputsrcname, Constants.PostgreSQLsource);
 
-		clearText(inputsrcdesc, Constants.PostgreSQLDesc);
+		clearText(inputsrcdesc);
 		enterText(inputsrcdesc, Constants.PostgreSQLDesc);
 
 	}

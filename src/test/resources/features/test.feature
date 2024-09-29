@@ -21,7 +21,14 @@ Feature: Title of your feature
   I want to use this template for my feature file
 
   @tag1
-  Scenario: Title of your scenario
-  	And Close the Chrome Browser
+  Scenario Outline: Title of your scenario
+    When user click on Upload Files button
+    Then verify a Pop up appears for the input values to enter
+    And user enter source name "<SOURCE_NAME>" and enter Source Description "<SOURCE_DESCRIPTION>"
+    And choose the file format to upload as "<FILE_FORMAT>"
+    And user Click on Upload Files "<FILE_NAME>" on the File upload pop up
+    Then verify the given file "<FILE_NAME>" is uploaded successfully
 
-  
+    Examples: 
+      | SOURCE_NAME       | SOURCE_DESCRIPTION     | FILE_FORMAT | FILE_NAME             |
+      | CATEGORY_FORECAST | Category Forecast Data | excel       | CategoryForecast.xlsx |
