@@ -153,6 +153,12 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
+### TestNG test-output ###
+test-output/
+
+### Extent Report ###
+Extent/
+
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
 

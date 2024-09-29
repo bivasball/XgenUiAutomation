@@ -4,9 +4,9 @@
 	<test name="ExtentReport5 for Cucumber">
 
 		<classes>
-			<!--<class name="com.xgen.automation.runner.CucumberRunnerTests_Extent" /> -->
+			<class name="com.xgen.automation.runner.CucumberRunnerTests_Extent" /> 
 
-			<class name="com.xgen.automation.runner.CucumberRunnerTests" />
+			<!--<class name="com.xgen.automation.runner.CucumberRunnerTests" />-->
 		</classes>
 	</test> <!--
 	Test -->
