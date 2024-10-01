@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 		tags = "@Both", 
 		features = "src/test/resources/features",
 		glue = "com/xgen/automation/definations",
-		plugin = {
+		plugin = {"pretty",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }
 		)
 
