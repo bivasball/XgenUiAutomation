@@ -1,18 +1,22 @@
 package com.xgen.automation.actions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import com.xgen.automation.base.CommonAction;
 import com.xgen.automation.locators.LoginLocator;
 
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-
 public class Login extends CommonAction implements LoginLocator {
 
+	static Logger mainLogger = LogManager.getLogger(Login.class);
+	
 	public void the_user_navigate_to_url(String url) {
 		startChromeDriver();
 		openPage(url);
+		mainLogger.info("This is just a logger");	
+		mainLogger.info("This is just a logger");	
+		mainLogger.info("This is just a logger");	
 
 	}
 
