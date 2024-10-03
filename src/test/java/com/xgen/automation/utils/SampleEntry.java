@@ -1,24 +1,16 @@
 package com.xgen.automation.utils;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SampleEntry {
-
-	//mainLogger is a logger object that we got from LogManager. All loggers are 
-        //using this method only. We can consider LogManager as a factory to create
-        //Logger objects
-	static Logger mainLogger = LogManager.getLogger(SampleEntry.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(SampleEntry.class);
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		BasicConfigurator.configure();
-		mainLogger.info("This is just a logger");	
-
+		logger.info("Application started");
+		logger.debug("Debugging information");
+		logger.error("An error occurred", new RuntimeException("Test error"));
 	}
-}
 
+}

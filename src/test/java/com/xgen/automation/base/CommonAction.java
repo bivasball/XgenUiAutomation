@@ -15,13 +15,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.xgen.automation.locators.Header;
 
-import io.cucumber.java.After;
+//import io.cucumber.java.After;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.time.Duration;
-import java.util.Collections;
+//import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -158,9 +158,22 @@ public class CommonAction implements Header {
 	    executor.executeScript("arguments[0].click();", element);
 	}
 	
+	public void scrollIntoView(WebElement Element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// Scrolling down the page till the element is found		
+        js.executeScript("arguments[0].scrollIntoView();", Element);
+		
+	}
+	public void scrollIntoView(By Element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// Scrolling down the page till the element is found		
+        js.executeScript("arguments[0].scrollIntoView();", driver.findElement(Element));
+		
+	}
 	public void clickByAction(WebElement Object) {
 		Actions action = new Actions(driver);
 		action.moveToElement(Object).click();	
+		
 	    
 	}
 	

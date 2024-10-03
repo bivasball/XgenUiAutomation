@@ -4,9 +4,14 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		tags = "@Testcase_01.1", 
-		features = "src/test/resources/features",
-		glue = "com/xgen/automation/definations",
+		tags = "@Story004", 
+		features = {"src/test/resources/features",
+				"src/test/resources/features/Creating_the_Connections"
+		},
+		glue = {"com/xgen/automation/definations",
+				"com/xgen/automation/definations/CreatingTheConnections"
+				
+		},
 		plugin = {"pretty",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }
 		)
