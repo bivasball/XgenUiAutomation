@@ -98,6 +98,7 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		click(primarykey_dropdown);
 		// sleep(1000);
 		By select_CategoryID = By.xpath("//ul/li//span[text()='CategoryID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_CategoryID);
 		click(select_CategoryID);
 		loadingWebPage();
 		// sleep(1000);
@@ -115,6 +116,7 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		click(primarykey_dropdown);
 		// sleep(1000);
 		By select_CategoryID = By.xpath("//ul/li//span[text()='CustomerID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_CategoryID);
 		click(select_CategoryID);
 		loadingWebPage();
 		// sleep(1000);
@@ -131,6 +133,7 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		click(primarykey_dropdown);
 		// sleep(1000);
 		By select_CategoryID = By.xpath("//ul/li//span[text()='EmployeeID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_CategoryID);
 		click(select_CategoryID);
 		loadingWebPage();
 		// sleep(1000);
@@ -147,10 +150,12 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		click(primarykey_dropdown);
 		// sleep(1000);
 		By select_OrderID = By.xpath("//ul/li//span[text()='OrderID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_OrderID);
 		click(select_OrderID);
 		loadingWebPage();
 		click(primarykey_dropdown);
 		By select_ProductID = By.xpath("//ul/li//span[text()='ProductID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_ProductID);
 		click(select_ProductID);
 		loadingWebPage();
 		// sleep(1000);
@@ -167,6 +172,7 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		click(primarykey_dropdown);
 		// sleep(1000);
 		By select_OrderID = By.xpath("//ul/li//span[text()='OrderID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_OrderID);
 		click(select_OrderID);
 		loadingWebPage();
 
@@ -184,6 +190,7 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		click(primarykey_dropdown);
 		// sleep(1000);
 		By select_ProductID = By.xpath("//ul/li//span[text()='ProductID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_ProductID);
 		click(select_ProductID);
 		loadingWebPage();
 
@@ -202,10 +209,12 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		click(primarykey_dropdown);
 		// sleep(1000);
 		By select_OrderID = By.xpath("//ul/li//span[text()='OrderID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_OrderID);
 		click(select_OrderID);
 		loadingWebPage();
 		click(primarykey_dropdown);
 		By select_ProductID = By.xpath("//ul/li//span[text()='ProductID']/parent::div/parent::div/span/input");
+		scrollIntoView(select_ProductID);
 		click(select_ProductID);
 		loadingWebPage();
 		// sleep(1000);
@@ -219,6 +228,56 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		loadingWebPage();
 		loadingWebPage();
 		
-	}
+		By syncDataFlowIcon = By.xpath("//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Sync Data Flow']/button");
+		click(syncDataFlowIcon);
+		loadingWebPage();
+		loadingWebPage();
+		loadingWebPage();
+		By jobsLogsIcon = By.xpath("//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Job Logs']/button");
+		click(jobsLogsIcon);
+		loadingWebPage();
+		By syncJobHistoryStatus = By.xpath("//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[1]//h6");
+		loadingWebPage();
+		loadingWebPage();
+		String syncJobStatus = getElementText(syncJobHistoryStatus);
+		System.out.println("-----------"+syncJobStatus);
+		//Sync Succeeded 
+		
+		
+		
+		By syncJobHistoryRefreshButton = By.xpath("//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[2]//p[text()='Refresh']");
+		
+		By syncJobHistoryCloseButton = By.xpath("//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[2]//p[text()='Close']");
+		
+		for(int count=1; count<5;count++) {
+		if(getElementText(syncJobHistoryStatus)!="Sync Succeeded") {
+			sleep(10000);
+			click(syncJobHistoryRefreshButton);
+			loadingWebPage();
+			System.out.println("-----------"+getElementText(syncJobHistoryStatus));
+		}
+		else {
+			break;
+		}
+		}
+		
+		/*
+		 * sleep(10000); click(syncJobHistoryRefreshButton); loadingWebPage();
+		 * System.out.println("-----------"+getElementText(syncJobHistoryStatus));
+		 * 
+		 * 
+		 * sleep(20000); click(syncJobHistoryRefreshButton); loadingWebPage();
+		 * System.out.println("-----------"+getElementText(syncJobHistoryStatus));
+		 * 
+		 * sleep(10000); click(syncJobHistoryRefreshButton); loadingWebPage();
+		 * System.out.println("-----------"+getElementText(syncJobHistoryStatus));
+		 * 
+		 * sleep(10000); click(syncJobHistoryRefreshButton); loadingWebPage();
+		 * System.out.println("-----------"+getElementText(syncJobHistoryStatus));
+		 */
+		
+		click(syncJobHistoryCloseButton);
+		
+				}
 
 }
