@@ -81,7 +81,32 @@ public void verify_from_the_job_logs_button_that_the_sync_is_succeeded() {
 	creatingConnectionAction.verify_from_the_job_logs_button_that_the_sync_is_succeeded();
 }
 
-	
-	
+
+//-------------------- For Categories Forecast -----------------------//
+
+@Given("the user Select MuiSwitch checkbox for Entity Value {string}")
+public void the_user_select_mui_switch_checkbox_for_entity_value(String string) {
+	creatingConnectionAction.the_user_select_mui_switch_checkbox_for_entity_value(string);
+}
+
+@Given("Sync Mode {string} from the Dropdown and Select Primary Key from the Dropdown")
+public void sync_mode_from_the_dropdown_and_select_primary_key_from_the_dropdown(String string) {
+	creatingConnectionAction.sync_mode_from_the_dropdown_and_select_primary_key_from_the_dropdown(string);
+}
+
+//-------------------- For Company Data -----------------------//
+@Given("the user Select MuiSwitch checkbox for Entity Value {string} for company data")
+public void the_user_select_mui_switch_checkbox_for_entity_value_for_company_data(String string) {
+	creatingConnectionAction.the_user_select_mui_switch_checkbox_for_entity_value_for_company_data(string);
+}
+
+@Given("Sync Mode {string} from the Dropdown and Select Primary Key from the Dropdown for company data")
+public void sync_mode_from_the_dropdown_and_select_primary_key_from_the_dropdown_for_company_data(String string) {
+	creatingConnectionAction.sync_mode_from_the_dropdown_and_select_primary_key_from_the_dropdownfor_company_data(string);
+}
+
+
+
+
 	
 }

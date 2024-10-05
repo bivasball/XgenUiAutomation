@@ -6,6 +6,8 @@ import org.testng.Assert;
 import com.xgen.automation.base.CommonAction;
 import com.xgen.automation.locators.CreatingtheConnectionsLocator;
 
+import io.cucumber.java.en.Given;
+
 public class CreatingConnectionAction extends CommonAction implements CreatingtheConnectionsLocator {
 
 	public void user_navigate_to_data_sync_by_clicking_on_sync_icon() {
@@ -230,19 +232,32 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		loadingWebPage();
 		loadingWebPage();
 		loadingWebPage();
+		loadingWebPage();
+		loadingWebPage();
+		
 
 	}
 
 	public void click_on_sync_data_flow_button_from_the_action_section_for(String string) {
 
+		/*
+		 * By syncDataFlowIcon = By.xpath(
+		 * "//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Sync Data Flow']/button"
+		 * );
+		 */
 		By syncDataFlowIcon = By.xpath(
-				"//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Sync Data Flow']/button");
+				"//div//p[text()='"+string+"']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Sync Data Flow']/button");
 		click(syncDataFlowIcon);
 		loadingWebPage();
 		loadingWebPage();
 		loadingWebPage();
+		/*
+		 * By jobsLogsIcon = By.xpath(
+		 * "//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Job Logs']/button"
+		 * );
+		 */
 		By jobsLogsIcon = By.xpath(
-				"//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Job Logs']/button");
+				"//div//p[text()='"+string+"']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Job Logs']/button");
 		click(jobsLogsIcon);
 		loadingWebPage();
 
@@ -281,4 +296,59 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		
 	}
 
+	
+	//--------------//-------------------- For Categories Forecast -----------------------//---------------//
+	
+	public void the_user_select_mui_switch_checkbox_for_entity_value(String string) {
+		By mui_checkbox = By.xpath("//p[text()='CATEGORY_FORECAST']/parent::div/parent::div/div/span/span/input");
+		//scrollIntoView(mui_checkbox);
+		//click(mui_checkbox);
+	}
+
+	
+	public void sync_mode_from_the_dropdown_and_select_primary_key_from_the_dropdown(String string) {
+		
+		
+		By primarykey_dropdown = By
+				.xpath("//p[text()='CATEGORY_FORECAST']/parent::div/parent::div/div[7]//div[@role='combobox']");
+		click(primarykey_dropdown);
+		
+		By select_Forecast_Month = By.xpath("//ul/li//span[text()='Forecast_Month']/parent::div/parent::div/span/input");
+		scrollIntoView(select_Forecast_Month);
+		click(select_Forecast_Month);
+		
+		click(primarykey_dropdown);
+		loadingWebPage();
+		By select_Category_Name = By.xpath("//ul/li//span[text()='Category_Name']/parent::div/parent::div/span/input");
+		scrollIntoView(select_Category_Name);
+		click(select_Category_Name);
+		loadingWebPage();
+		
+	}
+	
+	//--------------//-------------------- For Company Data -----------------------//---------------//
+	
+		public void the_user_select_mui_switch_checkbox_for_entity_value_for_company_data(String string) {
+			By mui_checkbox = By.xpath("//p[text()='COMPANY']/parent::div/parent::div/div/span/span/input");
+			//scrollIntoView(mui_checkbox);
+			//click(mui_checkbox);
+		}
+
+		
+		public void sync_mode_from_the_dropdown_and_select_primary_key_from_the_dropdownfor_company_data(String string) {
+			
+			
+			By primarykey_dropdown = By
+					.xpath("//p[text()='COMPANY']/parent::div/parent::div/div[7]//div[@role='combobox']");
+			click(primarykey_dropdown);
+			
+			By select_CategoryID = By.xpath("//ul/li//span[text()='CustomerID']/parent::div/parent::div/span/input");
+			scrollIntoView(select_CategoryID);
+			click(select_CategoryID);
+			
+			loadingWebPage();
+			
+		}
+	
+	
 }

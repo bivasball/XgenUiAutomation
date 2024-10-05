@@ -54,11 +54,22 @@ public class DeletingConnectionAction extends CommonAction implements Deletingth
 
 		driver.findElement(By.xpath("//p[text()='Refresh']")).click();
 		loadingWebPage();
+		/*
+		 * By sourceToDelete = By.xpath(
+		 * "//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Delete Connection']/button"
+		 * );
+		 */
 		By sourceToDelete = By.xpath(
-				"//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Delete Connection']/button");
+				"//div//p[text()='"+sourceName+"']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Delete Connection']/button");
 
+		/*
+		 * WebElement sourceDeleteicon = driver.findElement(By.xpath(
+		 * "//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Delete Connection']/button"
+		 * ));
+		 */
 		WebElement sourceDeleteicon = driver.findElement(By.xpath(
-				"//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Delete Connection']/button"));
+				"//div//p[text()='"+sourceName+"']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Delete Connection']/button"));
+
 
 		hoverOverWebelementByAction(sourceDeleteicon);
 		loadingWebPage();
