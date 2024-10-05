@@ -4,12 +4,11 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		tags = "@Story004", 
-		features = {"src/test/resources/features",
-				"src/test/resources/features/Creating_the_Connections"
-		},
-		glue = {"com/xgen/automation/definations",
-				"com/xgen/automation/definations/CreatingTheConnections"
+		tags = "@Testcase_01.1 or @Testcase_01.2 or @CreateConnectionPgSalesData or @DeleteConnectionPgSalesData", 
+		//tags = "@Testcase_01.1", 
+		features = {"src/test/resources/features"},
+		glue = {"com/xgen/automation/definations"
+				//"com/xgen/automation/definations/CreatingTheConnections"
 				
 		},
 		plugin = {"pretty",

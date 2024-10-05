@@ -1,7 +1,6 @@
 package com.xgen.automation.definations.CreatingTheConnections;
 
 import io.cucumber.java.en.*;
-import com.xgen.automation.actions.Login;
 import com.xgen.automation.actions.CreatingTheConnections.CreatingConnectionAction;
 import com.xgen.automation.base.CommonAction;
 
@@ -54,17 +53,7 @@ public void the_user_select_from_the_select_destination_dropdown(String string) 
 	creatingConnectionAction.the_user_select_from_the_select_destination_dropdown(string);
 }
 
-@Then("verify a web table with the following Headers are displayed")
-public void verify_a_web_table_with_the_following_headers_are_displayed(io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-   
-}
+
 
 @Then("the user Select MuiSwitch checkbox for Entity Value {string} and Sync Mode {string} from the Dropdown and Primary Key {string} from the Dropdown")
 public void the_user_select_mui_switch_checkbox_for_entity_value_and_sync_mode_from_the_dropdown_and_primary_key_from_the_dropdown(String string, String string2, String string3) {
@@ -79,6 +68,16 @@ public void the_user_click_on_create_icon_button() {
 @Then("verify the Connection for {string} is created successfully")
 public void verify_the_connection_for_is_created_successfully(String string) {
     
+}
+
+@Given("Click on Sync Data flow button from the Action section for {string}")
+public void click_on_sync_data_flow_button_from_the_action_section_for(String string) {
+	creatingConnectionAction.click_on_sync_data_flow_button_from_the_action_section_for( string);
+}
+
+@Then("verify from the Job Logs button that the Sync is succeeded")
+public void verify_from_the_job_logs_button_that_the_sync_is_succeeded() {
+	creatingConnectionAction.verify_from_the_job_logs_button_that_the_sync_is_succeeded();
 }
 
 	

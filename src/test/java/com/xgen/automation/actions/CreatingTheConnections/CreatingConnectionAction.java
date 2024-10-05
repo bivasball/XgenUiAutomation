@@ -219,65 +219,66 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		loadingWebPage();
 		// sleep(1000);
 	}
-	
-	
+
 	public void the_user_click_on_create_icon_button() {
 		By createButton = By.xpath("//p[text()='Create']");
 		click(createButton);
 		loadingWebPage();
 		loadingWebPage();
 		loadingWebPage();
-		
-		By syncDataFlowIcon = By.xpath("//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Sync Data Flow']/button");
+		loadingWebPage();
+		loadingWebPage();
+		loadingWebPage();
+		loadingWebPage();
+
+	}
+
+	public void click_on_sync_data_flow_button_from_the_action_section_for(String string) {
+
+		By syncDataFlowIcon = By.xpath(
+				"//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Sync Data Flow']/button");
 		click(syncDataFlowIcon);
 		loadingWebPage();
 		loadingWebPage();
 		loadingWebPage();
-		By jobsLogsIcon = By.xpath("//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Job Logs']/button");
+		By jobsLogsIcon = By.xpath(
+				"//div//p[text()='Pg sales db']/parent::div/parent::div/following-sibling::div[3]//span[@aria-label='Job Logs']/button");
 		click(jobsLogsIcon);
 		loadingWebPage();
-		By syncJobHistoryStatus = By.xpath("//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[1]//h6");
+
+	}
+
+	public void verify_from_the_job_logs_button_that_the_sync_is_succeeded() {
+
+		By syncJobHistoryStatus = By
+				.xpath("//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[1]//h6");
 		loadingWebPage();
 		loadingWebPage();
 		String syncJobStatus = getElementText(syncJobHistoryStatus);
-		System.out.println("-----------"+syncJobStatus);
-		//Sync Succeeded 
-		
-		
-		
-		By syncJobHistoryRefreshButton = By.xpath("//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[2]//p[text()='Refresh']");
-		
-		By syncJobHistoryCloseButton = By.xpath("//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[2]//p[text()='Close']");
-		
-		for(int count=1; count<5;count++) {
-		if(getElementText(syncJobHistoryStatus)!="Sync Succeeded") {
-			sleep(10000);
-			click(syncJobHistoryRefreshButton);
-			loadingWebPage();
-			System.out.println("-----------"+getElementText(syncJobHistoryStatus));
+		System.out.println("-----------" + syncJobStatus);
+		// Sync Succeeded
+
+		By syncJobHistoryRefreshButton = By.xpath(
+				"//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[2]//p[text()='Refresh']");
+
+		By syncJobHistoryCloseButton = By.xpath(
+				"//p[contains(text(),'Sync Job History')]/parent::h2/following-sibling::div[2]//p[text()='Close']");
+
+		for (int count = 1; count <= 10; count++) {
+			if (!getElementText(syncJobHistoryStatus).contains("Sync Succeeded")) {
+				sleep(7000);
+				click(syncJobHistoryRefreshButton);
+				loadingWebPage();
+				System.out.println("----in progress-------" + getElementText(syncJobHistoryStatus));
+			} else if(getElementText(syncJobHistoryStatus).contains("Sync Succeeded")){
+				System.out.println("-----Success------" + getElementText(syncJobHistoryStatus));
+				break;
+			}
 		}
-		else {
-			break;
-		}
-		}
-		
-		/*
-		 * sleep(10000); click(syncJobHistoryRefreshButton); loadingWebPage();
-		 * System.out.println("-----------"+getElementText(syncJobHistoryStatus));
-		 * 
-		 * 
-		 * sleep(20000); click(syncJobHistoryRefreshButton); loadingWebPage();
-		 * System.out.println("-----------"+getElementText(syncJobHistoryStatus));
-		 * 
-		 * sleep(10000); click(syncJobHistoryRefreshButton); loadingWebPage();
-		 * System.out.println("-----------"+getElementText(syncJobHistoryStatus));
-		 * 
-		 * sleep(10000); click(syncJobHistoryRefreshButton); loadingWebPage();
-		 * System.out.println("-----------"+getElementText(syncJobHistoryStatus));
-		 */
-		
+
+
 		click(syncJobHistoryCloseButton);
 		
-				}
+	}
 
 }

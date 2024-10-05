@@ -157,7 +157,7 @@ buildNumber.properties
 test-output/
 
 ### Extent Report ###
-Extent/
+ExtentReports/
 
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
