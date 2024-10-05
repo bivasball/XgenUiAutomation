@@ -4,8 +4,8 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		tags = "@Testcase_01.1 or @Testcase_01.2 or @CreateConnectionPgSalesData or @DeleteConnectionPgSalesData", 
-		//tags = "@Testcase_01.1", 
+		tags = "@CreateConnectionPgSalesData or @DeleteConnectionPgSalesData", 
+		//tags = "@CreateConnectionCategoryForecastData", 
 		features = {"src/test/resources/features"},
 		glue = {"com/xgen/automation/definations"
 				//"com/xgen/automation/definations/CreatingTheConnections"

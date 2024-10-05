@@ -1,10 +1,10 @@
-package com.xgen.automation.actions.CreatingTheConnections;
+package com.xgen.automation.actions;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import com.xgen.automation.base.CommonAction;
-import com.xgen.automation.locators.CreatingTheConnections.CreatingtheConnectionsLocator;
+import com.xgen.automation.locators.CreatingtheConnectionsLocator;
 
 public class CreatingConnectionAction extends CommonAction implements CreatingtheConnectionsLocator {
 

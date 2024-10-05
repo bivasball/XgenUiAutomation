@@ -1,7 +1,8 @@
-package com.xgen.automation.definations.CreatingTheConnections;
+package com.xgen.automation.definations;
 
 import io.cucumber.java.en.*;
-import com.xgen.automation.actions.CreatingTheConnections.CreatingConnectionAction;
+
+import com.xgen.automation.actions.CreatingConnectionAction;
 import com.xgen.automation.base.CommonAction;
 
 public class CreatingTheConnectionDefination extends CommonAction {
