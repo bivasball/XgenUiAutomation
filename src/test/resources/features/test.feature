@@ -22,5 +22,5 @@ Feature: Title of your feature
 
   @tag1
   Scenario Outline: Title of your scenario
-    And the user Select MuiSwitch checkbox for Entity Value "COMPANY_DATA" for company data
-    And Sync Mode "Full Fresh/Overwrite" from the Dropdown and Select Primary Key from the Dropdown for company data
+    And the user Select MuiSwitch checkbox for Entity Value "COMPANY_DATA" for Survey data
+    And Sync Mode "Full Fresh/Overwrite" from the Dropdown and Select Primary Key from the Dropdown for Survey data

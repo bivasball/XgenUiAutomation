@@ -342,13 +342,47 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 					.xpath("//p[text()='COMPANY']/parent::div/parent::div/div[7]//div[@role='combobox']");
 			click(primarykey_dropdown);
 			
-			By select_CategoryID = By.xpath("//ul/li//span[text()='CustomerID']/parent::div/parent::div/span/input");
-			scrollIntoView(select_CategoryID);
-			click(select_CategoryID);
+			By select_CustomerID = By.xpath("//ul/li//span[text()='CustomerID']/parent::div/parent::div/span/input");
+			scrollIntoView(select_CustomerID);
+			click(select_CustomerID);
 			
 			loadingWebPage();
 			
 		}
 	
-	
+		//--------------//-------------------- For Survey Data -----------------------//---------------//
+		
+			public void the_user_select_mui_switch_checkbox_for_entity_value_for_survey_data(String string) {
+				By mui_checkbox = By.xpath("//p[text()='SURVEY']/parent::div/parent::div/div/span/span/input");
+				//scrollIntoView(mui_checkbox);
+				//click(mui_checkbox);
+			}
+
+			
+			public void sync_mode_from_the_dropdown_and_select_primary_key_from_the_dropdownfor_survey_data(String string) {
+				
+				
+				By primarykey_dropdown = By
+						.xpath("//p[text()='SURVEY']/parent::div/parent::div/div[7]//div[@role='combobox']");
+				click(primarykey_dropdown);
+				
+				By select_CustomerID = By.xpath("//ul/li//span[text()='CustomerID']/parent::div/parent::div/span/input");
+				scrollIntoView(select_CustomerID);
+				click(select_CustomerID);
+				
+				click(primarykey_dropdown);
+				
+				By select_Survey_Date  = By.xpath("//ul/li//span[text()='Survey_Date']/parent::div/parent::div/span/input");
+				scrollIntoView(select_Survey_Date);
+				click(select_Survey_Date);
+				
+				click(primarykey_dropdown);
+				
+				By select_Survey_Category  = By.xpath("//ul/li//span[text()='Survey_Category']/parent::div/parent::div/span/input");
+				scrollIntoView(select_Survey_Category);
+				click(select_Survey_Category);
+				
+				loadingWebPage();
+				
+			}
 }

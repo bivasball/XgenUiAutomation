@@ -9,7 +9,8 @@ import io.cucumber.testng.CucumberOptions;
 		
 		//tags = "@CreateConnectionCompanyData", 
 		//tags = "@DeleteConnectionCategoryForecastData",
-		tags ="@Testcase_3.3",
+		//tags ="@CreateConnectionSurveyData",
+		tags = "@DeleteConnectionSurveyData",
 		features = {"src/test/resources/features"},
 		glue = {"com/xgen/automation/definations"
 				//"com/xgen/automation/definations/CreatingTheConnections"
