@@ -1,7 +1,7 @@
 @Story004
 Feature: Deleting the Connections for SURVEY_DATA
 
-  @DeleteConnectionSurveyData
+  @TC_018 @DeleteConnectionSurveyData
   Scenario Outline: Deleting the Connections for SURVEY_DATA from the Sync Page
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password

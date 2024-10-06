@@ -1,7 +1,7 @@
 @Story002
 Feature: Create PG DB source
 
-  @Testcase_0022 @Both @Regression
+  @TC_009 @Testcase_0022 @Both @Regression
   Scenario Outline: Create DB source and save
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -29,7 +29,7 @@ Feature: Create PG DB source
       | Source_name | Source_decription       |
       | PG_SALES_DB | pg sales db for testing |
 
-  @Testcase_0033 @Both @Regression
+  @TC_010 @Testcase_0033 @Both @Regression
   Scenario Outline: Create DB source and delete the created one.
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password

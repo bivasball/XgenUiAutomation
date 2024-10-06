@@ -1,7 +1,7 @@
 @Story004
 Feature: Deleting the Connections for CATEGORY_FORECAST
 
-  @DeleteConnectionCategoryForecastData
+  @TC_014 @DeleteConnectionCategoryForecastData
   Scenario Outline: Deleting the Connections for CATEGORY_FORECAST from the Sync Page
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -16,5 +16,5 @@ Feature: Deleting the Connections for CATEGORY_FORECAST
     Then verify "<SELECT_SOURCE>" is Deleted successfully
 
     Examples: 
-      | CONNECTION_NAME  | DESCRIPTION       | SELECT_SOURCE          | 
-      | CATEGORY_FORECAS | Category Forecast | Category Forecast Data | 
+      | CONNECTION_NAME  | DESCRIPTION       | SELECT_SOURCE          |
+      | CATEGORY_FORECAS | Category Forecast | Category Forecast Data |

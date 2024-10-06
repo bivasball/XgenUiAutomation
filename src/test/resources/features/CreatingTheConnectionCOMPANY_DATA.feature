@@ -1,7 +1,7 @@
 @Story004
 Feature: Creating the Connections for COMPANY_DATA
 
-  @CreateConnectionCompanyData
+  @TC_015 @CreateConnectionCompanyData
   Scenario Outline: Creating the Connections for COMPANY_DATA, Sync Data flow and verification from Job logs
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password

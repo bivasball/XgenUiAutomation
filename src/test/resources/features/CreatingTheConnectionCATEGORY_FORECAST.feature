@@ -1,7 +1,7 @@
 @Story004
 Feature: Creating the Connections for CATEGORY_FORECAST
 
-  @CreateConnectionCategoryForecastData
+  @TC_013 @CreateConnectionCategoryForecastData
   Scenario Outline: Creating the Connections for CATEGORY_FORECAST, Sync Data flow and verification from Job logs
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -17,7 +17,7 @@ Feature: Creating the Connections for CATEGORY_FORECAST
     And the user enter input values "<DESCRIPTION>" to Description input box
     And the user Select "<SELECT_SOURCE>" from the Select Source Dropdown
     And the user Select "<SELECT_DESTINATION>" from the Select Destination Dropdown
-    And the user Select MuiSwitch checkbox for Entity Value "CATEGORY_FORECAST" 
+    And the user Select MuiSwitch checkbox for Entity Value "CATEGORY_FORECAST"
     And Sync Mode "Full Fresh/Overwrite" from the Dropdown and Select Primary Key from the Dropdown
     When the user Click on Create icon button
     Then verify the Connection for "<CONNECTION_NAME>" is created successfully

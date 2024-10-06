@@ -1,7 +1,7 @@
 @Story004
 Feature: Creating the Connections for SURVEY_DATA
 
-  @CreateConnectionSurveyData
+  @TC_017 @CreateConnectionSurveyData
   Scenario Outline: Creating the Connections for SURVEY_DATA, Sync Data flow and verification from Job logs
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -25,5 +25,5 @@ Feature: Creating the Connections for SURVEY_DATA
     Then verify from the Job Logs button that the Sync is succeeded
 
     Examples: 
-      | CONNECTION_NAME | DESCRIPTION  | SELECT_SOURCE | SELECT_DESTINATION     |
-      | SURVEY_DATA    | Survey Data | Survey Data  | DW for Test Automation |
+      | CONNECTION_NAME | DESCRIPTION | SELECT_SOURCE | SELECT_DESTINATION     |
+      | SURVEY_DATA     | Survey Data | Survey Data   | DW for Test Automation |

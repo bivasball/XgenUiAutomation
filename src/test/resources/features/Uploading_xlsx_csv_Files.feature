@@ -1,7 +1,7 @@
 @Story003
 Feature: Uploading files
 
-  @Testcase_3.1 @Regression
+  @TC_003 @Testcase_3.1 @Regression
   Scenario Outline: To Upload CATEGORY_FORECAST xlsx file
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -22,7 +22,7 @@ Feature: Uploading files
       | SOURCE_NAME       | SOURCE_DESCRIPTION     | FILE_FORMAT | FILE_NAME             |
       | CATEGORY_FORECAST | Category Forecast Data | excel       | CategoryForecast.xlsx |
 
-  @Testcase_3.2 @Regression
+  @TC_004 @Testcase_3.2 @Regression
   Scenario Outline: To Delete the  CATEGORY_FORECAST xlsx file
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -44,7 +44,7 @@ Feature: Uploading files
       | Source_name       |
       | CATEGORY_FORECAST |
 
-  @Testcase_3.3 @Regression
+  @TC_005 @Testcase_3.3 @Regression
   Scenario Outline: To Upload SURVEY xlsx file
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -65,7 +65,7 @@ Feature: Uploading files
       | SOURCE_NAME | SOURCE_DESCRIPTION | FILE_FORMAT | FILE_NAME           |
       | SURVEY      | Survey Data        | excel       | Company Survey.xlsx |
 
-  @Testcase_3.4 @Regression
+  @TC_006 @Testcase_3.4 @Regression
   Scenario Outline: To Delete the  SURVEY xlsx file
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -87,7 +87,7 @@ Feature: Uploading files
       | Source_name |
       | SURVEY      |
 
-  @Testcase_3.5 @Regression
+  @TC_007 @Testcase_3.5 @Regression
   Scenario Outline: To Upload COMPANY csv file
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -108,7 +108,7 @@ Feature: Uploading files
       | SOURCE_NAME | SOURCE_DESCRIPTION | FILE_FORMAT | FILE_NAME        |
       | COMPANY     | Company Data       | csv         | company_data.csv |
 
-  @Testcase_3.6 @Regression
+  @TC_008 @Testcase_3.6 @Regression
   Scenario Outline: To Delete the  COMPANY csv file
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password

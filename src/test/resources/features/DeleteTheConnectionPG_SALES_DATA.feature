@@ -1,7 +1,7 @@
 @Story004
 Feature: Deleting the Connections for PG_SALES_DATA
 
-	@DeleteConnectionPgSalesData
+  @TC_012 @DeleteConnectionPgSalesData
   Scenario Outline: Deleting the Connections for PG_SALES_DATA from the Sync Page
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
@@ -11,7 +11,7 @@ Feature: Deleting the Connections for PG_SALES_DATA
     Then verify the user land to Welcome page "Welcome, Automation!"
     Given user navigate to Data Sync by clicking on Sync Icon
     Then verify that the current url is "http://xgendemo.uxli.com/connection"
-    And verify if "<SELECT_SOURCE>" is present or not 
+    And verify if "<SELECT_SOURCE>" is present or not
     And if "<SELECT_SOURCE>" is present the click on Delete icon from Actions section
     Then verify "<SELECT_SOURCE>" is Deleted successfully
 

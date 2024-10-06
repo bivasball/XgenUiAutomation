@@ -1,7 +1,7 @@
 @Story004
 Feature: Deleting the Connections for COMPANY_DATA
 
-  @DeleteConnectionCategoryForecastData
+  @TC_016 @DeleteConnectionCategoryForecastData
   Scenario Outline: Deleting the Connections for COMPANY_DATA from the Sync Page
     When the user navigate to "http://xgendemo.uxli.com" url
     Then verify the user should be able to enter username and password
