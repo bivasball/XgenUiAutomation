@@ -177,6 +177,13 @@ public class CommonAction implements Header {
 	    
 	}
 	
+	public void dragAndDropFromSourceToDestination(By Source,By Destination) {
+		Actions action = new Actions(driver);
+		action.dragAndDrop(driver.findElement(Source), driver.findElement(Destination)).perform();	
+		
+	    
+	}
+	
 	public void doubleClickByAction(WebElement Object) {
 		Actions action = new Actions(driver);
 		action.doubleClick(Object).perform();;	
