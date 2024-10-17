@@ -13,7 +13,7 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		By modelIcon = By.xpath("//span[text()='Model']");
 		click(modelIcon);
 		loadingWebPage();
-
+		sleep(1000);
 		By plusiconAddButton = By.xpath("//p[text()='Add']/parent::a");
 		click(plusiconAddButton);
 		loadingWebPage();
@@ -85,13 +85,13 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		dragAndDropFromSourceToDestination(categoriesNode, join_1_leftSideNode);
 
 		sleep(5000);
-		
-		//----check box selection for PRODUCTS ---//
+
+		// ----check box selection for PRODUCTS ---//
 		By productLabel = By.xpath("//span[text()='S_PRODUCTS']/parent::div[contains(@class,'MuiBox-root')]");
 		click(productLabel);
 		loadingWebPage();
 		sleep(2000);
-		selectCheckBox("ProductID");		
+		selectCheckBox("ProductID");
 		selectCheckBox("UnitPrice");
 		selectCheckBox("CategoryID");
 		selectCheckBox("SupplierID");
@@ -101,29 +101,61 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		selectCheckBox("UnitsInStock");
 		selectCheckBox("UnitsOnOrder");
 		selectCheckBox("QuantityPerUnit");
-	
+
 		By openArea = By.xpath("//div[@class='react-flow__viewport react-flow__container']");
 		click(openArea);
 		loadingWebPage();
 		sleep(2000);
-		
-		//----check box selection for Categories ---//
+
+		// ----check box selection for Categories ---//
 		By categoriesLabel = By.xpath("//span[text()='S_CATEGORIES']/parent::div[contains(@class,'MuiBox-root')]");
 		click(categoriesLabel);
 		loadingWebPage();
 		sleep(2000);
-		selectCheckBox("CategoryID");			
-		selectCheckBox("Description");			
-		selectCheckBox("CategoryName");	
-		
+		selectCheckBox("CategoryID");
+		selectCheckBox("Description");
+		selectCheckBox("CategoryName");
+
 		click(openArea);
 		loadingWebPage();
 		sleep(2000);
+
+		// ---9. Create a left outer join with “s_products.CATEGORYID =
+		// l_categories.CATEGORYID” by selecting join node. ---in JOIN_1 node//
+		By join_1_node_label = By.xpath("[text()='JOIN_1']");
+		click(join_1_node_label);
+		sleep(1000);
+		By button_Join_1_join_tab = By.xpath("//button[text()='Join']");
+		click(button_Join_1_join_tab);
+
+		By button_Join_1_join_tab_editJoin = By.xpath("//button[text()='Edit Join']");
+		click(button_Join_1_join_tab_editJoin);
+
+		By button_left_outer_join = By.xpath("//button[@value='LEFT OUTER JOIN']");
+		click(button_left_outer_join);
+
+		By icon_add = By.xpath("//div[contains(@class,'MuiBox-root css-z6iby2')]//button");
+		click(icon_add);
+
+		By input_s_categories = By.xpath("//div[contains(@class,'css-1a1stbe')]/div[1]//input");
+										  
+		enterText(input_s_categories, "CATEGORYID");
+		sendReturnKey(input_s_categories);
+		sleep(1000);
 		
+		By input_s_products = By.xpath("//div[contains(@class,'css-1a1stbe')]/div[3]//input");
+		enterText(input_s_products, "CATEGORYID");
+		sendReturnKey(input_s_products);
+		sleep(1000);
 		
-		//input[@value='ProductID']/parent::div/parent::div/parent::div/parent::div/div[1]//input
-		
-		
+		By button_apply = By.xpath("//p[text()='Apply']/parent::button");
+		click(button_apply);
+		sleep(2000);
+		click(button_apply);
+
+		loadingWebPage();
+		sleep(15000);
+
 		// ------------------join -----JOIN_1 to ModelName ---------
 
 		By ModelNameNode = By.xpath("//div[@data-nodeid='SEN_NODE']");
@@ -131,16 +163,25 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 
 		sleep(5000);
 
+		//----------------------- click create button ----------------//
+		By button_create = By.xpath("//p[text()='Create']");
+		click(button_create);
+		loadingWebPage();
+		loadingWebPage();
+		
+		By button_save_icon = By.xpath("//ul[@role='menu']/li[1]");
+		click(button_save_icon);
+		
+		sleep(5000);
+		
 	}
 
 	public void selectCheckBox(String fieldName) {
-		
-		//By checkselect = By.xpath("//input[@value='"+fieldName+"']/parent::div/parent::div/parent::div/parent::div/div[1]//input");
-		By checkselect = By.xpath("//p[text()='"+fieldName+"']/parent::div/parent::div/div/span/input");
-		
-		click(checkselect);
-		//sleep(200);
+
+		By checkboxselect = By.xpath("//p[text()='" + fieldName + "']/parent::div/parent::div/div/span/input");
+
+		click(checkboxselect);
+		// sleep(200);
 	}
-	
-	
+
 }

@@ -2,6 +2,7 @@ package com.xgen.automation.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.time.Duration;
+import java.util.Collections;
 //import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,7 +61,29 @@ public class CommonAction implements Header {
 			// logger.error("Exception in 'clearText'");
 		}
 	}
+	
+	public void sendEnterKey(By Object) {
+		try {
+			
+			WebElement el = driver.findElement(Object);			
+			el.sendKeys(Keys.ENTER);
 
+		} catch (Exception e) {
+			// logger.error("Exception in 'enterText'");
+		}
+	}
+	
+	public void sendReturnKey(By Object) {
+		try {
+			
+			WebElement el = driver.findElement(Object);			
+			el.sendKeys(Keys.RETURN);
+
+		} catch (Exception e) {
+			// logger.error("Exception in 'enterText'");
+		}
+	}
+	
 	public void explicitWait(By obj, int maxiTimeout, String strConditionMode) {
 
 		String mode = strConditionMode.toUpperCase();
@@ -252,9 +276,10 @@ public class CommonAction implements Header {
 		logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
 		options.setCapability(ChromeOptions.LOGGING_PREFS, logPrefs);
 		options.addArguments("--start-maximized");
+		options.addArguments("Zoom 80%");
 		// to disable the automation text
 		options.setExperimentalOption("useAutomationExtension", false);
-		//options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+		options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 		return startChromeDriver(options);
 	}
 
