@@ -3,17 +3,43 @@ package com.xgen.automation.actions;
 import org.openqa.selenium.By;
 import com.xgen.automation.base.CommonAction;
 import com.xgen.automation.locators.Creating_The_Model_Locator;
-import com.xgen.automation.locators.CreatingtheConnectionsLocator;
-
-import io.cucumber.java.en.Given;
 
 public class Creating_The_Model_Action extends CommonAction implements Creating_The_Model_Locator {
 
+	
+
+	public void selectCheckBox(String fieldName) {
+
+		By checkboxselect = By.xpath("//p[text()='" + fieldName + "']/parent::div/parent::div/div/span/input");
+
+		click(checkboxselect);
+		// sleep(200);
+	}
+
+	public void selectCheckBox(String source, String fieldName) {
+
+		// By checkboxselect =
+		// By.xpath("//p[text()='s_categories']/parent::div/preceding-sibling::div//p[text()='"
+		// + fieldName + "']/parent::div/parent::div/div/span/input");
+		By checkboxselect = By.xpath("//p[text()='" + source + "']/parent::div/preceding-sibling::div//p[text()='"
+				+ fieldName + "']/parent::div/parent::div/div/span/input");
+
+		click(checkboxselect);
+		// sleep(200);
+	}
+
+	// ----------------the below to be used by def -------//
+
 	public void navigate_to_data_modeller() {
+
 		By modelIcon = By.xpath("//span[text()='Model']");
 		click(modelIcon);
 		loadingWebPage();
 		sleep(1000);
+
+	}
+
+	public void click_on_plus_model_icon_to_create_a_data_table() {
 		By plusiconAddButton = By.xpath("//p[text()='Add']/parent::a");
 		click(plusiconAddButton);
 		loadingWebPage();
@@ -21,10 +47,12 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		loadingWebPage();
 		loadingWebPage();
 
+	}
+
+	public void click_on_view_radio_button() {
 		By radiobuttonView = By.xpath("//span[text()='View']/parent::label/span/input");
 		click(radiobuttonView);
 		loadingWebPage();
-
 		By inputModelName = By.xpath("//input[@id='modelName']");
 		click(inputModelName);
 		enterText(inputModelName, "DIM_PRODUCTS");
@@ -38,7 +66,11 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 
 		By selectEDW = By.xpath("//p[text()='edw']");
 		click(selectEDW);
+		sleep(1000);
 
+	}
+
+	public void select_products_source_node_from_the_source_node_icon() {
 		// ------------------for Products -------------//
 		By buttonSourceNode = By.xpath("//span[@aria-label='Source Node']/button");
 		click(buttonSourceNode);
@@ -54,6 +86,9 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		loadingWebPage();
 		sleep(5000);
 
+	}
+
+	public void select_appropriate_columns_from_the_source_node_for_the_products() {
 		By buttonJoinNode = By.xpath("//span[@aria-label='Join Node']/button");
 		click(buttonJoinNode);
 		loadingWebPage();
@@ -69,6 +104,9 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 
 		sleep(3000);
 
+	}
+
+	public void select_categories_lookup_node_from_the_lookup_node_icon() {
 		// -----------------------------for categories ----------------//
 		click(buttonSourceNode);
 		loadingWebPage();
@@ -85,6 +123,10 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		dragAndDropFromSourceToDestination(categoriesNode, join_1_leftSideNode);
 
 		sleep(5000);
+
+	}
+
+	public void select_appropriate_columns_from_the_lookup_node_for_categories() {
 
 		// ----check box selection for PRODUCTS ---//
 		By productLabel = By.xpath("//span[text()='S_PRODUCTS']/parent::div[contains(@class,'MuiBox-root')]");
@@ -120,6 +162,10 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		loadingWebPage();
 		sleep(2000);
 
+	}
+
+	public void select_join_node_and_join_the_source_node_and_lookup_node_on_it() {
+
 		// ---9. Create a left outer join with “s_products.CATEGORYID =
 		// l_categories.CATEGORYID” by selecting join node. ---in JOIN_1 node//
 		By join_1_node_label = By.xpath("[text()='JOIN_1']");
@@ -138,16 +184,16 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		click(icon_add);
 
 		By input_s_categories = By.xpath("//div[contains(@class,'css-1a1stbe')]/div[1]//input");
-										  
+
 		enterText(input_s_categories, "CATEGORYID");
 		sendReturnKey(input_s_categories);
 		sleep(1000);
-		
+
 		By input_s_products = By.xpath("//div[contains(@class,'css-1a1stbe')]/div[3]//input");
 		enterText(input_s_products, "CATEGORYID");
 		sendReturnKey(input_s_products);
 		sleep(1000);
-		
+
 		By button_apply = By.xpath("//p[text()='Apply']/parent::button");
 		click(button_apply);
 		sleep(2000);
@@ -163,25 +209,37 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 
 		sleep(5000);
 
-		//----------------------- click create button ----------------//
+		// ----------------------------select checkbox of Join_1
+		// ----------------------//
+		By label_join_1 = By.xpath("//p[text()='JOIN_1']");
+		click(label_join_1);
+		sleep(1000);
+
+		selectCheckBox("s_categories", "CategoryID");
+		selectCheckBox("s_categories", "Description");
+		selectCheckBox("s_categories", "CategoryName");
+
+		selectCheckBox("s_products", "ProductID");
+		selectCheckBox("s_products", "UnitPrice");
+		selectCheckBox("s_products", "SupplierID");
+		selectCheckBox("s_products", "ProductName");
+		selectCheckBox("s_products", "Discontinued");
+		selectCheckBox("s_products", "ReorderLevel");
+		selectCheckBox("s_products", "UnitsInStock");
+		selectCheckBox("s_products", "UnitsOnOrder");
+		selectCheckBox("s_products", "QuantityPerUnit");
+
+		// ----------------------- click create button ----------------//
 		By button_create = By.xpath("//p[text()='Create']");
 		click(button_create);
 		loadingWebPage();
 		loadingWebPage();
-		
+
 		By button_save_icon = By.xpath("//ul[@role='menu']/li[1]");
 		click(button_save_icon);
-		
+
 		sleep(5000);
-		
-	}
 
-	public void selectCheckBox(String fieldName) {
-
-		By checkboxselect = By.xpath("//p[text()='" + fieldName + "']/parent::div/parent::div/div/span/input");
-
-		click(checkboxselect);
-		// sleep(200);
 	}
 
 }
