@@ -22,11 +22,8 @@ Feature: Title of your feature
 
   @tag1
   Scenario Outline: Title of your scenario
-    And Navigate to Data Modeller
-    And Click on plus MODEL icon to create a Data Table
-    And Click on View Radio button
-    And Select PRODUCTS source node from the source node icon
-    And Select appropriate columns from the source node for the PRODUCTS
-    And Select CATEGORIES lookup node from the lookup node icon
-    And Select appropriate columns from the lookup node for CATEGORIES
-    And Select Join Node and join the source node and lookup node on it
+  
+And Click on View Radio button to select the view
+
+
+   

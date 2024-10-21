@@ -69,7 +69,49 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		sleep(1000);
 
 	}
+	public void click_on_view_radio_button_1() {
+		By radiobuttonView = By.xpath("//span[text()='View']/parent::label/span/input");
+		click(radiobuttonView);
+		loadingWebPage();
+		
 
+	}
+	public void enter_the_input_for_Model_name_and_Description_and_model_schema_2() {
+		
+		By inputModelName = By.xpath("//input[@id='modelName']");
+		click(inputModelName);
+		enterText(inputModelName, "DIM_PRODUCTS");
+
+		By inputModelDescrip = By.xpath("//input[@id='modelDesc']");
+		click(inputModelDescrip);
+		enterText(inputModelDescrip, "DIM_PRODUCTS");
+
+		By modelSchemaDropdown = By.xpath("//div[@id='select-schema-label']");
+		click(modelSchemaDropdown);
+
+		By selectEDW = By.xpath("//p[text()='edw']");
+		click(selectEDW);
+		sleep(1000);
+
+	}
+	
+	public void select_products_source_node_from_the_source_node_icon_3() {
+		// ------------------for Products -------------//
+		By buttonSourceNode = By.xpath("//span[@aria-label='Source Node']/button");
+		click(buttonSourceNode);
+		loadingWebPage();
+		sleep(1000);
+
+		By sourceObject = By.xpath("//div[text()='TESTAUTOMATE']");
+		click(sourceObject);
+		sleep(1000);
+
+		By source_Products = By.xpath("//p[text()='PRODUCTS']");
+		click(source_Products);
+		loadingWebPage();
+		sleep(5000);
+
+	}
 	public void select_products_source_node_from_the_source_node_icon() {
 		// ------------------for Products -------------//
 		By buttonSourceNode = By.xpath("//span[@aria-label='Source Node']/button");
