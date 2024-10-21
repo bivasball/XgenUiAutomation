@@ -1,5 +1,7 @@
 package com.xgen.automation.base;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -29,6 +31,14 @@ import java.util.Map;
 import java.util.logging.Level;
 
 public class CommonAction implements Header {
+	
+public static Logger log;
+	
+	
+	public CommonAction() {
+		log = LogManager.getLogger(CommonAction.class);
+		
+	}
 
 	public void sleep(int slpSec) {
 		try {
@@ -58,7 +68,7 @@ public class CommonAction implements Header {
 			el.clear();
 
 		} catch (Exception e) {
-			// logger.error("Exception in 'clearText'");
+			log.error("Exception in 'clearText'");
 		}
 	}
 	
@@ -69,7 +79,7 @@ public class CommonAction implements Header {
 			el.sendKeys(Keys.ENTER);
 
 		} catch (Exception e) {
-			// logger.error("Exception in 'enterText'");
+			log.error("Exception in 'enterText'");
 		}
 	}
 	
@@ -80,7 +90,7 @@ public class CommonAction implements Header {
 			el.sendKeys(Keys.RETURN);
 
 		} catch (Exception e) {
-			// logger.error("Exception in 'enterText'");
+			log.error("Exception in 'enterText'");
 		}
 	}
 	
@@ -113,14 +123,18 @@ public class CommonAction implements Header {
 				(new WebDriverWait(driver, Duration.ofSeconds(maxiTimeout)))
 						.until(ExpectedConditions.elementToBeClickable(obj));
 				break;
+			case "SELECTED":
+				(new WebDriverWait(driver, Duration.ofSeconds(maxiTimeout)))
+						.until(ExpectedConditions.elementToBeSelected(obj));
+				break;
 
 			default:
-				// logger.error("Incorrect Condition mode");
+				log.error("Incorrect Condition mode");
 
 			}
 
 		} catch (Exception e) {
-			// logger.error("Exception in 'explicit wait'");
+			log.error("Exception in 'explicit wait'");
 		}
 	}
 
@@ -153,29 +167,48 @@ public class CommonAction implements Header {
 				(new WebDriverWait(driver, Duration.ofSeconds(maxiTimeout)))
 						.until(ExpectedConditions.elementToBeClickable(obj));
 				return true;
+				
+			case "SELECTED":
+				(new WebDriverWait(driver, Duration.ofSeconds(maxiTimeout)))
+						.until(ExpectedConditions.elementToBeSelected(obj));
+				break;
+
 
 			default:
-				// logger.error("Incorrect Condition mode");
+				log.error("Incorrect Condition mode");
 
 			}
 
 		} catch (Exception e) {
-			// logger.error("Exception in 'explicit wait'");
+			log.error("Exception in 'explicit wait'");
 		}
 		return false;
 	}
 
 	public void click(By Object) {
 		try {
-			explicitWait(Object, 5, "CLICKABLE");
+			explicitWait(Object, 5, "PRESENCE");
 			WebElement el = driver.findElement(Object);
 			el.click();
-			System.out.println("The element is clicked");
+			//System.out.println("The element is clicked");
+			log.info("The element is clicked");
 		} catch (Exception e) {
-			// logger.error("Exception in 'enterText'");
+			log.error("Exception in 'enterText'");
 		}
 	}
 	
+	
+	public void click(By Object,String expectedConditions) {
+		try {
+			explicitWait(Object, 5, expectedConditions);
+			WebElement el = driver.findElement(Object);
+			el.click();
+			//System.out.println("The element is clicked");
+			log.info("The element is clicked");
+		} catch (Exception e) {
+			log.error("Exception in 'click'");
+		}
+	}
 	
 	public void clickElement(WebElement element) {
 	    JavascriptExecutor executor = (JavascriptExecutor) driver;
@@ -381,14 +414,16 @@ public class CommonAction implements Header {
 		long startTime = System.currentTimeMillis();
 		explicitWait(By.xpath("//span[contains(@style,'react-spinners-RiseLoader-odd')]"), 30, "INVISIBILITY");
 		long estimatedTime = System.currentTimeMillis() - startTime;
-		System.out.println("Time taken to load a webpage: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
+		//System.out.println("Time taken to load a webpage: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
+		log.info("Time taken to load a webpage: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
 	}
 	
 	public void waitTillalertToastifyDisappears()  {
 		long startTime = System.currentTimeMillis();
 		explicitWait(By.xpath("//div[@role='alert' and @class='Toastify__toast-body']"), 30, "INVISIBILITY");
 		long estimatedTime = System.currentTimeMillis() - startTime;
-		System.out.println("Time taken to vanish Toastify Icon: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
+		//System.out.println("Time taken to vanish Toastify Icon: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
+		log.info("Time taken to vanish Toastify Icon: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
 	}
 	
 }

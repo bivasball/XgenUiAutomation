@@ -158,7 +158,7 @@ test-output/
 
 ### Extent Report ###
 ExtentReports/
-
+logs/
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
 
