@@ -4,9 +4,18 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		tags = "@Both", 
-		features = "src/test/resources/features",
-		glue = "com/xgen/automation/definations",
+		//tags = "@CreateConnectionPgSalesData or @DeleteConnectionPgSalesData", 
+		//tags = "@CreateConnectionCategoryForecastData or @DeleteConnectionCategoryForecastData", 
+		
+		//tags = "@CreateConnectionCompanyData", 
+		//tags = "@DeleteConnectionCategoryForecastData",
+		//tags ="@CreateConnectionSurveyData",
+		tags = "@DeleteConnectionSurveyData",
+		features = {"src/test/resources/features"},
+		glue = {"com/xgen/automation/definations"
+				//"com/xgen/automation/definations/CreatingTheConnections"
+				
+		},
 		plugin = {"pretty",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }
 		)

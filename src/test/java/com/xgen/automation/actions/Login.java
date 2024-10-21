@@ -1,18 +1,18 @@
 package com.xgen.automation.actions;
 
+
 import org.testng.Assert;
 
 import com.xgen.automation.base.CommonAction;
 import com.xgen.automation.locators.LoginLocator;
 
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-
 public class Login extends CommonAction implements LoginLocator {
 
+	
 	public void the_user_navigate_to_url(String url) {
 		startChromeDriver();
 		openPage(url);
+	
 
 	}
 
@@ -59,7 +59,7 @@ public class Login extends CommonAction implements LoginLocator {
 
 	
 	public void verify_the_user_successfully_logout() {
-	   String currenturl = driver.getCurrentUrl();
+	  // String currenturl = driver.getCurrentUrl();
 	   //Assert.assertEquals(currenturl, "http://xgendemo.uxli.com/login");
 	}
 
