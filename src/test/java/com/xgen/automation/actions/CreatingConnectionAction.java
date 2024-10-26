@@ -6,8 +6,6 @@ import org.testng.Assert;
 import com.xgen.automation.base.CommonAction;
 import com.xgen.automation.locators.CreatingtheConnectionsLocator;
 
-import io.cucumber.java.en.Given;
-
 public class CreatingConnectionAction extends CommonAction implements CreatingtheConnectionsLocator {
 
 	public void user_navigate_to_data_sync_by_clicking_on_sync_icon() {
@@ -300,7 +298,7 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 	//--------------//-------------------- For Categories Forecast -----------------------//---------------//
 	
 	public void the_user_select_mui_switch_checkbox_for_entity_value(String string) {
-		By mui_checkbox = By.xpath("//p[text()='CATEGORY_FORECAST']/parent::div/parent::div/div/span/span/input");
+		//By mui_checkbox = By.xpath("//p[text()='CATEGORY_FORECAST']/parent::div/parent::div/div/span/span/input");
 		//scrollIntoView(mui_checkbox);
 		//click(mui_checkbox);
 	}
@@ -329,7 +327,7 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 	//--------------//-------------------- For Company Data -----------------------//---------------//
 	
 		public void the_user_select_mui_switch_checkbox_for_entity_value_for_company_data(String string) {
-			By mui_checkbox = By.xpath("//p[text()='COMPANY']/parent::div/parent::div/div/span/span/input");
+			//By mui_checkbox = By.xpath("//p[text()='COMPANY']/parent::div/parent::div/div/span/span/input");
 			//scrollIntoView(mui_checkbox);
 			//click(mui_checkbox);
 		}
@@ -353,7 +351,7 @@ public class CreatingConnectionAction extends CommonAction implements Creatingth
 		//--------------//-------------------- For Survey Data -----------------------//---------------//
 		
 			public void the_user_select_mui_switch_checkbox_for_entity_value_for_survey_data(String string) {
-				By mui_checkbox = By.xpath("//p[text()='SURVEY']/parent::div/parent::div/div/span/span/input");
+				//By mui_checkbox = By.xpath("//p[text()='SURVEY']/parent::div/parent::div/div/span/span/input");
 				//scrollIntoView(mui_checkbox);
 				//click(mui_checkbox);
 			}

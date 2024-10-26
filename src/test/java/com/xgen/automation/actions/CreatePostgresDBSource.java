@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
 import com.xgen.automation.base.CommonAction;
 import com.xgen.automation.locators.CreatePostgresDBSourceLocators;
 import com.xgen.automation.utils.Constants;
@@ -120,7 +118,7 @@ public class CreatePostgresDBSource extends CommonAction implements CreatePostgr
 
 	public void verify_a_success_pop_appears() {
 		sleep(2000);
-		String succMessageActual = getElementText(successMessage);		
+		//String succMessageActual = getElementText(successMessage);		
 		//Assert.assertEquals(succMessageActual, "Success");
 		explicitWait(successMessage, 30, "INVISIBILITY");
 	}

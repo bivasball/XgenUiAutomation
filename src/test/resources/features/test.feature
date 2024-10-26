@@ -22,8 +22,9 @@ Feature: Title of your feature
 
   @tag1
   Scenario Outline: Title of your scenario
-  
-And Click on View Radio button to select the view
-
-
-   
+    And Click on Pipeline icon to navigate to Pipeline section
+    And Click on Add Button
+    And Enter the input xx to Pipe Name
+    And Enter the input xx to Pipe Description
+    And Enter the input xx to Run With User Id
+    

@@ -12,7 +12,7 @@ public class RunWithMain extends CommonAction {
 	public static void main(String[] args) {
 		CommonAction comm = new CommonAction();
 		comm.startChromeDriver();
-		comm.openPage("https://the-internet.herokuapp.com/upload");
+		//comm.openPage("https://the-internet.herokuapp.com/upload");
 		comm.sleep(2000);
 		File uploadFile = new File("src/test/resources/files/fileUpload.png");
 

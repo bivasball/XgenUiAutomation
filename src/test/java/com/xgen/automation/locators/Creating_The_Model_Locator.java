@@ -45,4 +45,10 @@ public interface Creating_The_Model_Locator {
 	
 	By button_save_icon = By.xpath("//ul[@role='menu']/li[1]");
 	
+	
+	
+By popupDeleteButton = By.xpath("//p[text()='Delete']");	
+	
+	By popupCancelButton = By.xpath("//p[text()='Cancel']");
+	
 }

@@ -29,26 +29,22 @@ Feature: Creating the Model
     And Navigate to Data Modeller
     And Click on plus MODEL icon to create a Data Table
     And Click on View Radio button to select the view
-    
     And Enter the input DIM PRODUCTS to Model Name
     And Enter the input Dim products to Model Desc
     And Select edw from the drop down Model Schema
-    
     And Click on Source Node and Choose PRODUCTS
-		And Click on Join Node and Map PRODUCTS to Join Node JOIN1
-		And Click on PRODUCTS Node and choose the Check box of Columns tab 
-		
-		And Click on Source Node and Choose CATEGORIES
-		And Click on Join Node and Map CATEGORIES to Join Node JOIN1
-		And Click on CATEGORIES Node and choose the Check box of Columns tab
-		
-		And Click on JOIN1 Node and Map JOIN1 to DIM PRODUCTS Node
-		And Click on JOIN1 Node and choose the Check box of Columns tab
-		
-		And Click on Join tab on JOIN1
-		And Click on Edit join of JOIN1
-		And Click on Join Type LEFT OUTER JOIN and click on plus icon Add 
-		And Create a left outer join with s_products.CATEGORYID = l_categories.CATEGORYID
-		And Click Apply button 
-		And Create Button and Select Save the DIM PRODUCTS model
-    
+    And Click on Join Node and Map PRODUCTS to Join Node JOIN1
+    And Click on PRODUCTS Node and choose the Check box of Columns tab
+    And Click on Source Node and Choose CATEGORIES
+    And Click on Join Node and Map CATEGORIES to Join Node JOIN1
+    And Click on CATEGORIES Node and choose the Check box of Columns tab
+    And Click on JOIN1 Node and Map JOIN1 to DIM PRODUCTS Node
+    And Click on JOIN1 Node and choose the Check box of Columns tab
+    And Click on Join tab on JOIN1
+    And Click on Edit join of JOIN1
+    And Click on Join Type LEFT OUTER JOIN and click on plus icon Add
+    And Create a left outer join with s_products.CATEGORYID = l_categories.CATEGORYID
+    And Click Apply button
+    And Create Button and Select Save the DIM PRODUCTS model
+
+  

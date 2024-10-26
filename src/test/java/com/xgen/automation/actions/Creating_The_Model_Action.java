@@ -70,6 +70,9 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 
 	}
 	public void click_on_view_radio_button_1() {
+		loadingWebPage();
+		loadingWebPage();
+		loadingWebPage();
 		By radiobuttonView = By.xpath("//span[text()='View']/parent::label/span/input");
 		click(radiobuttonView);
 		loadingWebPage();
@@ -139,7 +142,7 @@ public class Creating_The_Model_Action extends CommonAction implements Creating_
 		By productNode = By.xpath("//div[@data-nodeid='SRN_1']");
 
 		By join_1_leftSideNode = By.xpath("//div[@data-id='JON_2-JON-target']");
-		By join_1_RightSideNode = By.xpath("//div[@data-id='JON_2-JON-source']");
+		//By join_1_RightSideNode = By.xpath("//div[@data-id='JON_2-JON-source']");
 
 		// ----join Products to join_1 ----//
 		dragAndDropFromSourceToDestination(productNode, join_1_leftSideNode);

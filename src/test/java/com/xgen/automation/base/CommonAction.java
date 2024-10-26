@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,13 +32,12 @@ import java.util.Map;
 import java.util.logging.Level;
 
 public class CommonAction implements Header {
-	
-public static Logger log;
-	
-	
+
+	public static Logger log;
+
 	public CommonAction() {
 		log = LogManager.getLogger(CommonAction.class);
-		
+
 	}
 
 	public void sleep(int slpSec) {
@@ -71,29 +71,29 @@ public static Logger log;
 			log.error("Exception in 'clearText'");
 		}
 	}
-	
+
 	public void sendEnterKey(By Object) {
 		try {
-			
-			WebElement el = driver.findElement(Object);			
+
+			WebElement el = driver.findElement(Object);
 			el.sendKeys(Keys.ENTER);
 
 		} catch (Exception e) {
 			log.error("Exception in 'enterText'");
 		}
 	}
-	
+
 	public void sendReturnKey(By Object) {
 		try {
-			
-			WebElement el = driver.findElement(Object);			
+
+			WebElement el = driver.findElement(Object);
 			el.sendKeys(Keys.RETURN);
 
 		} catch (Exception e) {
 			log.error("Exception in 'enterText'");
 		}
 	}
-	
+
 	public void explicitWait(By obj, int maxiTimeout, String strConditionMode) {
 
 		String mode = strConditionMode.toUpperCase();
@@ -167,12 +167,11 @@ public static Logger log;
 				(new WebDriverWait(driver, Duration.ofSeconds(maxiTimeout)))
 						.until(ExpectedConditions.elementToBeClickable(obj));
 				return true;
-				
+
 			case "SELECTED":
 				(new WebDriverWait(driver, Duration.ofSeconds(maxiTimeout)))
 						.until(ExpectedConditions.elementToBeSelected(obj));
 				break;
-
 
 			default:
 				log.error("Incorrect Condition mode");
@@ -190,68 +189,69 @@ public static Logger log;
 			explicitWait(Object, 5, "PRESENCE");
 			WebElement el = driver.findElement(Object);
 			el.click();
-			//System.out.println("The element is clicked");
-			log.info("The element is clicked");
-		} catch (Exception e) {
-			log.error("Exception in 'enterText'");
-		}
-	}
-	
-	
-	public void click(By Object,String expectedConditions) {
-		try {
-			explicitWait(Object, 5, expectedConditions);
-			WebElement el = driver.findElement(Object);
-			el.click();
-			//System.out.println("The element is clicked");
+			// System.out.println("The element is clicked");
 			log.info("The element is clicked");
 		} catch (Exception e) {
 			log.error("Exception in 'click'");
 		}
 	}
-	
-	public void clickElement(WebElement element) {
-	    JavascriptExecutor executor = (JavascriptExecutor) driver;
-	    executor.executeScript("arguments[0].click();", element);
+
+	public void click(By Object, String expectedConditions) {
+		try {
+			explicitWait(Object, 5, expectedConditions);
+			WebElement el = driver.findElement(Object);
+			el.click();
+			// System.out.println("The element is clicked");
+			log.info("The element is clicked");
+		} catch (Exception e) {
+			log.error("Exception in 'click'");
+		}
 	}
-	
+
+	public void clickElement(WebElement element) {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", element);
+	}
+
 	public void scrollIntoView(WebElement Element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		// Scrolling down the page till the element is found		
-        js.executeScript("arguments[0].scrollIntoView();", Element);
-		
+		// Scrolling down the page till the element is found
+		js.executeScript("arguments[0].scrollIntoView();", Element);
+
 	}
+
 	public void scrollIntoView(By Element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		// Scrolling down the page till the element is found		
-        js.executeScript("arguments[0].scrollIntoView();", driver.findElement(Element));
-		
+		// Scrolling down the page till the element is found
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(Element));
+
 	}
+
 	public void clickByAction(WebElement Object) {
 		Actions action = new Actions(driver);
-		action.moveToElement(Object).click();	
-		
-	    
+		action.moveToElement(Object).click();
+
 	}
-	
-	public void dragAndDropFromSourceToDestination(By Source,By Destination) {
+
+	public void dragAndDropFromSourceToDestination(By Source, By Destination) {
 		Actions action = new Actions(driver);
-		action.dragAndDrop(driver.findElement(Source), driver.findElement(Destination)).perform();	
-		
-	    
+		action.dragAndDrop(driver.findElement(Source), driver.findElement(Destination)).perform();
+
 	}
-	
+
 	public void doubleClickByAction(WebElement Object) {
 		Actions action = new Actions(driver);
-		action.doubleClick(Object).perform();;	
-	    
+		action.doubleClick(Object).perform();
+		;
+
 	}
+
 	public void hoverOverWebelementByAction(WebElement Object) {
 		Actions action = new Actions(driver);
-		action.moveToElement(Object).build().perform();	
-	    
+		action.moveToElement(Object).build().perform();
+
 	}
-	
+
 	public void selectItem(WebElement ele, String option) {
 		Select select = new Select(ele);
 		select.selectByVisibleText(option);
@@ -364,41 +364,38 @@ public static Logger log;
 	}
 
 	public void deleteSourceFromConnectSourcesTabList(String sourceName) {
-		
-		
+
 		driver.findElement(By.xpath("//p[text()='Refresh']")).click();
 		sleep(3000);
-	
-		By sourceToDelete = By.xpath("//p[text()='"+sourceName+"']/parent::div/parent::div/parent::div/div[7]//span[@aria-label='Delete Source']/button//*[name()='svg']");
-		//System.out.println(sourceToDelete.toString());
-		
-		
-		//click(sourceToDelete);
-		
-		WebElement sourceDeleteicon= driver.findElement(By.xpath("//p[text()='"+sourceName+"']/parent::div/parent::div/parent::div/div[7]//span[@aria-label='Delete Source']/button"));
-		//clickElement(sourceDeleteicon);
+
+		By sourceToDelete = By.xpath("//p[text()='" + sourceName
+				+ "']/parent::div/parent::div/parent::div/div[7]//span[@aria-label='Delete Source']/button//*[name()='svg']");
+		// System.out.println(sourceToDelete.toString());
+
+		// click(sourceToDelete);
+
+		WebElement sourceDeleteicon = driver.findElement(By.xpath("//p[text()='" + sourceName
+				+ "']/parent::div/parent::div/parent::div/div[7]//span[@aria-label='Delete Source']/button"));
+		// clickElement(sourceDeleteicon);
 		hoverOverWebelementByAction(sourceDeleteicon);
 		sleep(3000);
-		//clickByAction(sourceDeleteicon);
+		// clickByAction(sourceDeleteicon);
 		click(sourceToDelete);
 		System.out.println("The delete icon ****************** is clicked.");
 		sleep(6000);
 	}
-	
-	
-	
 
 	public boolean verifySourceNameDisplayedInConnectSourcesTabList(String sourceName) {
 		boolean flag = false;
 		int numberOfRowsDisplayed = driver
 				.findElements(By.xpath("//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div/div/div/p"))
 				.size();
-		System.out.println("ROWS :- "+numberOfRowsDisplayed);
+		System.out.println("ROWS :- " + numberOfRowsDisplayed);
 		for (int row = 1; row <= numberOfRowsDisplayed; row++) {
 			String sourceNamefromUI = driver.findElement(By.xpath(
-					"//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div[" + row + "]/div/div/p"))					
+					"//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div[" + row + "]/div/div/p"))
 					.getText();
-			System.out.println("source name from ui :- "+sourceNamefromUI);
+			System.out.println("source name from ui :- " + sourceNamefromUI);
 			if (sourceNamefromUI.equalsIgnoreCase(sourceName)) {
 				System.out.println("This is true");
 				flag = true;
@@ -410,20 +407,50 @@ public static Logger log;
 		return flag;
 	}
 
-	public void loadingWebPage()  {
+	public void loadingWebPage() {
 		long startTime = System.currentTimeMillis();
 		explicitWait(By.xpath("//span[contains(@style,'react-spinners-RiseLoader-odd')]"), 30, "INVISIBILITY");
 		long estimatedTime = System.currentTimeMillis() - startTime;
-		//System.out.println("Time taken to load a webpage: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
+		// System.out.println("Time taken to load a webpage: " + ((double)
+		// Math.round(estimatedTime) / 1000d) + " Second");
 		log.info("Time taken to load a webpage: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
 	}
-	
-	public void waitTillalertToastifyDisappears()  {
+
+	public void waitTillalertToastifyDisappears() {
 		long startTime = System.currentTimeMillis();
 		explicitWait(By.xpath("//div[@role='alert' and @class='Toastify__toast-body']"), 30, "INVISIBILITY");
 		long estimatedTime = System.currentTimeMillis() - startTime;
-		//System.out.println("Time taken to vanish Toastify Icon: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
+		// System.out.println("Time taken to vanish Toastify Icon: " + ((double)
+		// Math.round(estimatedTime) / 1000d) + " Second");
 		log.info("Time taken to vanish Toastify Icon: " + ((double) Math.round(estimatedTime) / 1000d) + " Second");
 	}
+
+	public void waitingTillTheCdSpinnerStop(int maxtimeout) {
+		try {
+			long startTime = System.currentTimeMillis();
+
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(maxtimeout));
+			wait.until(new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver driver) {
+					WebElement button = driver.findElement(By.xpath("//td/img[@id='co633CdImage']"));
+					String enabled = button.getAttribute("src");
+					if (enabled.contains("cd.gif"))
+						return true;
+					else
+						return false;
+				}
+			});
+			long estimatedTime = System.currentTimeMillis() - startTime;
+			log.info("Time taken to stop the co633CdImage : " + ((double) Math.round(estimatedTime) / 1000d)
+					+ " Second");
+		} catch (Exception e) {
+		}
+	}
+
+	
+	
+
+	
+	
 	
 }
