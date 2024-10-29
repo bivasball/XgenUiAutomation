@@ -22,9 +22,10 @@ Feature: Title of your feature
 
   @tag1
   Scenario Outline: Title of your scenario
-    And Click on Pipeline icon to navigate to Pipeline section
-    And Click on Add Button
-    And Enter the input xx to Pipe Name
-    And Enter the input xx to Pipe Description
-    And Enter the input xx to Run With User Id
-    
+    And Navigate to Govern Page
+    And Click on Models under Data Assets and Select XIL_DIM_PRODUCTS
+    And Click on Data Quality tab and Click on Plus Add button
+    And Select Column level from the Pop up and Select ProductID field
+    And Select Completeness as Rule Category
+    And Select Verify Unique Values in Column
+    And Click on Apply and Click on Save and Run the Data Quality check
