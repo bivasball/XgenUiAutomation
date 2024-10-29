@@ -94,6 +94,21 @@ public class CommonAction implements Header {
 		}
 	}
 
+	public void selectByVisibleText(By visibleTxt) {
+		try {
+
+			Select objSelect =new Select(driver.findElement(visibleTxt));
+			objSelect.selectByVisibleText("ProductID");
+
+		} catch (Exception e) {
+			log.error("Exception in Select by visible text");
+		}
+	}
+	
+	
+	
+	
+	
 	public void explicitWait(By obj, int maxiTimeout, String strConditionMode) {
 
 		String mode = strConditionMode.toUpperCase();

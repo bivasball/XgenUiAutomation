@@ -34,6 +34,13 @@ public class Creating_The_Govern_Def extends CommonAction {
 		creatGovAction.click_on_data_quality_tab_and_click_on_plus_add_button();
 	}
 
+	@Given("Enter the input to Name, Description and Select Major Button")
+	public void enter_the_input_to_name_description_and_select_major_button() {
+		creatGovAction.enter_the_input_to_name_description_and_select_major_button();
+	}
+
+	
+	
 	@Given("Select Column level from the Pop up and Select ProductID field")
 	public void select_column_level_from_the_pop_up_and_select_product_id_field() {
 		creatGovAction.select_column_level_from_the_pop_up_and_select_product_id_field();

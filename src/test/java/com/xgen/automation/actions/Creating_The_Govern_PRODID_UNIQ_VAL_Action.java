@@ -3,6 +3,7 @@ package com.xgen.automation.actions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 import com.xgen.automation.base.CommonAction;
 import com.xgen.automation.locators.Creating_The_Model_Locator;
@@ -66,6 +67,29 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 	    
 	}
 
+	
+	public void enter_the_input_to_name_description_and_select_major_button() {
+		
+		
+		By input_Name = By.xpath("//label[text()='Name']/parent::div//input");
+		enterText(input_Name,"PRODID_UNIQ_VAL");
+		
+		
+		By input_Description = By.xpath("//label[text()='Description']/parent::div//input");
+		enterText(input_Description,"Creating a Data quality Rule");
+		
+		
+		By button_major = By.xpath("//button[@value='major']");
+		click(button_major);
+		
+		
+	}
+	
+	
+	
+	
+	
+	
 	public void select_column_level_from_the_pop_up_and_select_product_id_field() {
 		
 		By column_level_button = By.xpath("//button[text()='column']");
@@ -73,25 +97,73 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		loadingWebPage();
 	  
 		
-		//button[@title='Open']
+		
 		By fields_dropdown = By.xpath("//button[@title='Open']");
-		click(fields_dropdown);
+		click(fields_dropdown);		
 		
+		By Action_ProductID = By.xpath("//*[text()='ProductID']");
+		click(Action_ProductID);
 		
+		loadingWebPage();
 		
-		By fields_dropdown_ProductID = By.xpath("//input[@value='ProductID']");
-		click(fields_dropdown_ProductID);
 		
 		
 	}
 
 	public void select_completeness_as_rule_category() {
+		
+		By fields_rule_category_dropdown = By.xpath("//label[text()='Rule Category']/parent::div//button[@title='Open']");		
+		
+		click(fields_rule_category_dropdown);
+		
+		By select_RuleCategory_completeness = By.xpath("//*[text()='completeness']");
+		click(select_RuleCategory_completeness);
+		
+		loadingWebPage();
+		
+		
 	}
 
 	public void select_verify_unique_values_in_column() {
+		
+		
+		By fields_rule_Name_dropdown = By.xpath("//label[text()='Rule Name']/parent::div//button[@title='Open']");			
+		click(fields_rule_Name_dropdown);		
+		
+		
+		By select_RuleName_Unique= By.xpath("//*[text()='Verify Unique Values in Column']");				
+		click(select_RuleName_Unique);
+		
+		loadingWebPage();
+		
+		
+		
 	}
 
 	public void click_on_apply_and_click_on_save_and_run_the_data_quality_check() {
+		
+		
+		
+		By button_Apply = By.xpath("//p[text()='Apply']/ancestor::button");		
+		
+		click(button_Apply);		
+		
+		loadingWebPage();
+		loadingWebPage();
+		
+		By button_Save = By.xpath("//p[text()='Save']/ancestor::button");	
+		
+		click(button_Save);
+		waitTillalertToastifyDisappears();	
+		
+		
+		By button_Run = By.xpath("//p[text()='Run']/ancestor::button");		
+		
+		click(button_Run);	
+		waitTillalertToastifyDisappears();	
+		
+		
+		
 	}
 	
 

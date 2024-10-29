@@ -13,6 +13,7 @@ Feature: The Govern page and its functionality
     And Navigate to Govern Page
     And Click on Models under Data Assets and Select XIL_DIM_PRODUCTS
     And Click on Data Quality tab and Click on Plus Add button
+    And Enter the input to Name, Description and Select Major Button
     And Select Column level from the Pop up and Select ProductID field
     
     And Select Completeness as Rule Category
