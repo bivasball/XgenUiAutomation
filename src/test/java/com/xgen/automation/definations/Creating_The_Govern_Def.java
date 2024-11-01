@@ -58,7 +58,8 @@ public class Creating_The_Govern_Def extends CommonAction {
 
 	@Given("Click on Apply and Click on Save and Run the Data Quality check")
 	public void click_on_apply_and_click_on_save_and_run_the_data_quality_check() {
-		creatGovAction.select_verify_unique_values_in_column();
+		
+		creatGovAction.click_on_apply_and_click_on_save_and_run_the_data_quality_check();
 	}
 
 

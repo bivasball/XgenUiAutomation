@@ -135,8 +135,11 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		click(select_RuleName_Unique);
 		
 		loadingWebPage();
+		By popup_label= By.xpath("//p[text()='DQ Rules for:']");				
+		click(popup_label);
+		loadingWebPage();
 		
-		
+		//System.out.println(driver.findElement(By.xpath("/html/body")).getText());		
 		
 	}
 
@@ -146,7 +149,8 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 		By button_Apply = By.xpath("//p[text()='Apply']/ancestor::button");		
 		
-		click(button_Apply);		
+		click(button_Apply);			
+		
 		
 		loadingWebPage();
 		loadingWebPage();
@@ -161,6 +165,10 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 		click(button_Run);	
 		waitTillalertToastifyDisappears();	
+		sleep(5000  );
+		
+		//----------------------Delete Rule ---------------//
+		By button_delete_rule = By.xpath("//span[text()='PRODID_UNIQ_VAL']/parent::div/following-sibling::div[7]//span[@aria-label='Delete Rule']/button");
 		
 		
 		
