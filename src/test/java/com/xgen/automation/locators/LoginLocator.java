@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public interface LoginLocator {
 	By xx = By.xpath("");
-	//By username = By.id("outlined-adornment-email");
+	By username = By.id("outlined-adornment-email");
 	By password = By.id("outlined-adornment-password");
 	By submitButton = By.xpath("//button[@type='submit']");
 	
@@ -13,7 +13,8 @@ public interface LoginLocator {
 	By userWelcome = By.xpath("//h4");
 	By logoutButton = By.xpath("//span[@aria-label=\"Logout\"]/button[@type='button']");
 	
-	By username = By.id("outlined-adornment-emailxxxxxxx");
+	//-------------to simulate fail scenario ------------//
+	//By username = By.id("outlined-adornment-emailxxxxxxx");
 	
 	
 }
