@@ -16,9 +16,6 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-
 public class BaseTest  {
 	protected static WebDriver driver;
 	protected WebDriverWait wait;
@@ -86,17 +83,7 @@ public class BaseTest  {
 		}
 	}
 
-	//@Before
-	public void setUp() {
-
-		startChromeDriver();
-	}
-
-	//@After
-	public void tearDown() {
-
-		quit();
-	}
+	
 
 	public static void main(String[] args) {
 		new BaseTest().startChromeDriver();

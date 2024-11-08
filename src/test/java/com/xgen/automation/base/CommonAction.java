@@ -207,7 +207,7 @@ public class CommonAction implements Header {
 			// System.out.println("The element is clicked");
 			log.info("The element is clicked");
 		} catch (Exception e) {
-			log.error("Exception in 'click'");
+			//log.error("Exception in 'click'");
 		}
 	}
 
@@ -219,7 +219,7 @@ public class CommonAction implements Header {
 			// System.out.println("The element is clicked");
 			log.info("The element is clicked");
 		} catch (Exception e) {
-			log.error("Exception in 'click'");
+			//log.error("Exception in 'click'");
 		}
 	}
 
@@ -366,17 +366,7 @@ public class CommonAction implements Header {
 		}
 	}
 
-	// @Before
-	public void setUp() {
-
-		startChromeDriver();
-	}
-
-	// @After
-	public void tearDown() {
-
-		quit();
-	}
+	
 
 	public void deleteSourceFromConnectSourcesTabList(String sourceName) {
 

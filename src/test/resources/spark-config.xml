@@ -20,9 +20,9 @@
 		<reportName>XgenAutomation Report</reportName>
 		
 		<!-- view report without internet -->
-		<offlineMode>false</offlineMode>
+		<offlineMode>true</offlineMode>
 		
-		<!-- <thumbnailForBase64>true</thumbnailForBase64> -->
+		 <thumbnailForBase64>true</thumbnailForBase64>
 
 		<!-- custom javascript -->
 		<js></js>

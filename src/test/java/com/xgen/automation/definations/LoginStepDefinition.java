@@ -1,5 +1,7 @@
 package com.xgen.automation.definations;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import com.xgen.automation.actions.Login;
 import com.xgen.automation.base.CommonAction;
@@ -62,7 +64,6 @@ public class LoginStepDefinition extends CommonAction {
 	public void close_the_chrome_browser() {
 	    login.close_the_chrome_browser();
 	}
-
 
 	
 }

@@ -22,6 +22,7 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 	public void navigate_to_govern_page() {
 		
 		By governIcon = By.xpath("//span[text()='Govern']");
+		log.info("Clicking on Govern Icon");
 		click(governIcon);
 		loadingWebPage();
 		loadingWebPage();
@@ -35,6 +36,7 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 		
 		By modelsOfDataAssets = By.xpath("//span[text()='Models']");
+		log.info("Click on Models");
 		click(modelsOfDataAssets);
 		loadingWebPage();
 		
@@ -46,6 +48,7 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 		
 		By xil_Dim_products_link = By.xpath("//a[text()='XIL_DIM_PRODUCTS']");
+		log.info("Click on XIL_DIM_PRODUCTS");
 		click(xil_Dim_products_link);
 		loadingWebPage();
 		loadingWebPage();
@@ -53,6 +56,7 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 		//button[text()='Data Quality']
 		By data_quality_button = By.xpath("//button[text()='Data Quality']");
+		log.info("Click on Data Quality");
 		click(data_quality_button);
 		loadingWebPage();
 		loadingWebPage();
@@ -60,6 +64,7 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 		
 		By add_plus_icon = By.xpath("//p[text()='Add']");
+		log.info("Click on Add icon");
 		click(add_plus_icon);
 		loadingWebPage();
 		
@@ -72,14 +77,17 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 		
 		By input_Name = By.xpath("//label[text()='Name']/parent::div//input");
+		log.info("Enter the text to input Name");
 		enterText(input_Name,"PRODID_UNIQ_VAL");
 		
 		
 		By input_Description = By.xpath("//label[text()='Description']/parent::div//input");
+		log.info("Enter the text to input Description");
 		enterText(input_Description,"Creating a Data quality Rule");
 		
 		
 		By button_major = By.xpath("//button[@value='major']");
+		log.info("Click on button Major");
 		click(button_major);
 		
 		
@@ -93,15 +101,18 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 	public void select_column_level_from_the_pop_up_and_select_product_id_field() {
 		
 		By column_level_button = By.xpath("//button[text()='column']");
+		log.info("Click on Column label button");
 		click(column_level_button);
 		loadingWebPage();
 	  
 		
 		
 		By fields_dropdown = By.xpath("//button[@title='Open']");
+		log.info("Click on Fields dropdown");
 		click(fields_dropdown);		
 		
 		By Action_ProductID = By.xpath("//*[text()='ProductID']");
+		log.info("Click on ProductID");
 		click(Action_ProductID);
 		
 		loadingWebPage();
@@ -113,10 +124,12 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 	public void select_completeness_as_rule_category() {
 		
 		By fields_rule_category_dropdown = By.xpath("//label[text()='Rule Category']/parent::div//button[@title='Open']");		
+		log.info("Click on Field dropdown");
 		
 		click(fields_rule_category_dropdown);
 		
 		By select_RuleCategory_completeness = By.xpath("//*[text()='completeness']");
+		log.info("Click on Rule Category Completeness");
 		click(select_RuleCategory_completeness);
 		
 		loadingWebPage();
@@ -127,15 +140,18 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 	public void select_verify_unique_values_in_column() {
 		
 		
-		By fields_rule_Name_dropdown = By.xpath("//label[text()='Rule Name']/parent::div//button[@title='Open']");			
+		By fields_rule_Name_dropdown = By.xpath("//label[text()='Rule Name']/parent::div//button[@title='Open']");		
+		log.info("Click on Fields rule name dropdown");
 		click(fields_rule_Name_dropdown);		
 		
 		
-		By select_RuleName_Unique= By.xpath("//*[text()='Verify Unique Values in Column']");				
+		By select_RuleName_Unique= By.xpath("//*[text()='Verify Unique Values in Column']");	
+		log.info("Select Rule Name Unique");
 		click(select_RuleName_Unique);
 		
 		loadingWebPage();
-		By popup_label= By.xpath("//p[text()='DQ Rules for:']");				
+		By popup_label= By.xpath("//p[text()='DQ Rules for:']");		
+		log.info("Click on Pop Up label");
 		click(popup_label);
 		loadingWebPage();
 		
@@ -147,7 +163,8 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 		
 		
-		By button_Apply = By.xpath("//p[text()='Apply']/ancestor::button");		
+		By button_Apply = By.xpath("//p[text()='Apply']/ancestor::button");	
+		log.info("Click on Button Apply");
 		
 		click(button_Apply);			
 		
@@ -156,19 +173,22 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		loadingWebPage();
 		
 		By button_Save = By.xpath("//p[text()='Save']/ancestor::button");	
+		log.info("Click on Button save");
 		
 		click(button_Save);
 		waitTillalertToastifyDisappears();	
 		
 		
 		By button_Run = By.xpath("//p[text()='Run']/ancestor::button");		
+		log.info("Click on Run button");
 		
 		click(button_Run);	
+		log.info("Wait till Toastify live icon disappears");
 		waitTillalertToastifyDisappears();	
 		sleep(5000  );
 		
 		//----------------------Delete Rule ---------------//
-		By button_delete_rule = By.xpath("//span[text()='PRODID_UNIQ_VAL']/parent::div/following-sibling::div[7]//span[@aria-label='Delete Rule']/button");
+		//By button_delete_rule = By.xpath("//span[text()='PRODID_UNIQ_VAL']/parent::div/following-sibling::div[7]//span[@aria-label='Delete Rule']/button");
 		
 		
 		
