@@ -3,12 +3,10 @@ package com.xgen.automation.actions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.xgen.automation.base.CommonAction;
 import com.xgen.automation.locators.Creating_The_Model_Locator;
-
-import io.cucumber.java.en.Given;
 
 public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction implements Creating_The_Model_Locator {
 
@@ -40,13 +38,6 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		click(modelsOfDataAssets);
 		loadingWebPage();
 		
-	    
-	}
-
-	public void click_on_data_quality_tab_and_click_on_plus_add_button() {
-		
-		
-		
 		By xil_Dim_products_link = By.xpath("//a[text()='XIL_DIM_PRODUCTS']");
 		log.info("Click on XIL_DIM_PRODUCTS");
 		click(xil_Dim_products_link);
@@ -54,7 +45,12 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		loadingWebPage();
 		loadingWebPage();
 		
-		//button[text()='Data Quality']
+	    
+	}
+
+	public void click_on_data_quality_tab_and_click_on_plus_add_button() {		
+		
+		
 		By data_quality_button = By.xpath("//button[text()='Data Quality']");
 		log.info("Click on Data Quality");
 		click(data_quality_button);
@@ -93,7 +89,25 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		
 	}
 	
-	
+public void enter_the_input_to_name_description_and_select_major_button(String inputName,String inputDesc) {
+		
+		
+		By input_Name = By.xpath("//label[text()='Name']/parent::div//input");
+		log.info("Enter the text to input Name");
+		enterText(input_Name,inputName);
+		
+		
+		By input_Description = By.xpath("//label[text()='Description']/parent::div//input");
+		log.info("Enter the text to input Description");
+		enterText(input_Description,inputDesc);
+		
+		
+		By button_major = By.xpath("//button[@value='major']");
+		log.info("Click on button Major");
+		click(button_major);
+		
+		
+	}
 	
 	
 	
@@ -176,6 +190,13 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 		log.info("Click on Button save");
 		
 		click(button_Save);
+		
+		explicitWait(PopUpofGovernMessage,5,"VISIBILITY");
+		log.info("The pop up or the Alert message is************************* :"+getElementText(PopUpofGovernMessage));
+		String expectedText = "DQ Rule saved successfully";
+		String actualPopupText = getElementText(PopUpofGovernMessage);
+		Assert.assertEquals(actualPopupText,expectedText,"The Alert is not matched with the expected.");
+		
 		waitTillalertToastifyDisappears();	
 		
 		
@@ -195,4 +216,45 @@ public class Creating_The_Govern_PRODID_UNIQ_VAL_Action extends CommonAction imp
 	}
 	
 
+	
+	public void click_on_data_quality_tab_and_verify_that_is_present_or_not(String inputName) {
+		
+		By data_quality_button = By.xpath("//button[text()='Data Quality']");
+		log.info("Click on Data Quality");
+		click(data_quality_button);
+		loadingWebPage();
+		loadingWebPage();
+		loadingWebPage();
+	    
+	}
+
+	
+	public void verify_that_is_deleted_successfully(String inputName) {
+	    
+	}
+	
+	
+	public boolean verifyIfTheGivenNameIsPresentInTheList(String sourceName) {
+		boolean flag = false;
+		int numberOfRowsDisplayed = driver
+				.findElements(By.xpath("//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div/div/div/p"))
+				.size();
+		System.out.println("ROWS :- " + numberOfRowsDisplayed);
+		for (int row = 1; row <= numberOfRowsDisplayed; row++) {
+			String sourceNamefromUI = driver.findElement(By.xpath(
+					"//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div[" + row + "]/div/div/p"))
+					.getText();
+			System.out.println("source name from ui :- " + sourceNamefromUI);
+			if (sourceNamefromUI.equalsIgnoreCase(sourceName)) {
+				System.out.println("This is true");
+				flag = true;
+				break;
+			} else {
+				flag = false;
+			}
+		}
+		return flag;
+	}
+	
+	
 }

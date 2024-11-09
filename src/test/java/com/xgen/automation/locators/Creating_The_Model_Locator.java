@@ -43,12 +43,16 @@ public interface Creating_The_Model_Locator {
 	By button_apply = By.xpath("//p[text()='Apply']/parent::button");
 	By button_create = By.xpath("//p[text()='Create']");
 	
-	By button_save_icon = By.xpath("//ul[@role='menu']/li[1]");
+	By button_save_icon = By.xpath("//ul[@role='menu']/li[1]");	
 	
 	
-	
-By popupDeleteButton = By.xpath("//p[text()='Delete']");	
-	
+	By popupDeleteButton = By.xpath("//p[text()='Delete']");		
 	By popupCancelButton = By.xpath("//p[text()='Cancel']");
+	
+	//--------------------------//
+	//DQ Rule saved successfully//////////////
+	By PopUpofGovernMessage = By.xpath("//div[@role='alert' and @class='Toastify__toast-body']/div[2]");
+	
+	
 	
 }

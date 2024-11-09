@@ -22,19 +22,19 @@ public class Hook extends CommonAction {
 
 	@Before
 	public void setUpp() {
-		System.out.println("I am inside the BEFORE HOOK 1111");
+		//System.out.println("I am inside the BEFORE HOOK 1111");
 		//startChromeDriver();
 	}
 
 	@After
 	public void tearDownn() {
-		System.out.println("I am inside the AFTER HOOK 2222");
+		//System.out.println("I am inside the AFTER HOOK 2222");
 		//quit();
 	}
 
 	@AfterStep
 	public void actionPostEachStep(Scenario scenario) {
-		System.out.println("I am inside Each Step ............");
+		//System.out.println("I am inside Each Step ............");
 		
 		if(scenario.isFailed()) {
 		TakesScreenshot takesScreenshot = (TakesScreenshot)driver;

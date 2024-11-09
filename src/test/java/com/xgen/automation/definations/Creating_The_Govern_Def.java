@@ -40,6 +40,14 @@ public class Creating_The_Govern_Def extends CommonAction {
 	}
 
 	
+	@Given("Enter the input to Name {string}, Description {string} and Select Major Button")
+	public void enter_the_input_to_name_description_and_select_major_button(String inputName, String inputDesc) {
+		creatGovAction.enter_the_input_to_name_description_and_select_major_button(inputName,inputDesc);
+	}
+
+
+	
+	
 	
 	@Given("Select Column level from the Pop up and Select ProductID field")
 	public void select_column_level_from_the_pop_up_and_select_product_id_field() {
@@ -64,7 +72,19 @@ public class Creating_The_Govern_Def extends CommonAction {
 
 
 
+	//-------------------------for Delete functionality -------------------//
 	
+	
+	@Given("Click on Data Quality tab and Verify that {string} is present or not")
+	public void click_on_data_quality_tab_and_verify_that_is_present_or_not(String inputName) {
+	    
+	}
+
+	@Then("Verify that {string} is deleted successfully")
+	public void verify_that_is_deleted_successfully(String inputName) {
+	    
+	}
+
 	
 	
 }
