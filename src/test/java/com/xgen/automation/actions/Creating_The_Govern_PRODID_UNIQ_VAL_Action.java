@@ -208,8 +208,6 @@ public void enter_the_input_to_name_description_and_select_major_button(String i
 		waitTillalertToastifyDisappears();	
 		sleep(5000  );
 		
-		//----------------------Delete Rule ---------------//
-		//By button_delete_rule = By.xpath("//span[text()='PRODID_UNIQ_VAL']/parent::div/following-sibling::div[7]//span[@aria-label='Delete Rule']/button");
 		
 		
 		
@@ -225,24 +223,51 @@ public void enter_the_input_to_name_description_and_select_major_button(String i
 		loadingWebPage();
 		loadingWebPage();
 		loadingWebPage();
+		//verifyIfTheGivenNameIsPresentInTheList(inputName);
+		log.info("The required input is present which is :"+verifyIfTheGivenNameIsPresentInTheList(inputName));
+		
 	    
 	}
 
 	
 	public void verify_that_is_deleted_successfully(String inputName) {
+		
+		//----------------------Delete Rule ---------------//
+		By button_delete_rule = By.xpath("//span[text()='PRODID_UNIQ_VAL']/parent::div/following-sibling::div[7]//span[@aria-label='Delete Rule']/button");
+		boolean isexist = verifyIfTheGivenNameIsPresentInTheList(inputName);		
+		if(isexist==true) {
+			log.info("If the input is present then click on Delete button");
+			click(button_delete_rule);
+		}
 	    
+		
+		By button_Save = By.xpath("//p[text()='Save']/ancestor::button");	
+		log.info("Click on Button save");
+		
+		click(button_Save);
+		
+		explicitWait(PopUpofGovernMessage,5,"VISIBILITY");
+		log.info("The pop up or the Alert message is************************* :"+getElementText(PopUpofGovernMessage));
+		String expectedText = "DQ Rule saved successfully";
+		String actualPopupText = getElementText(PopUpofGovernMessage);
+		Assert.assertEquals(actualPopupText,expectedText,"The Alert is not matched with the expected.");
+		
+		waitTillalertToastifyDisappears();	
+		
+		
+		
 	}
 	
 	
 	public boolean verifyIfTheGivenNameIsPresentInTheList(String sourceName) {
 		boolean flag = false;
 		int numberOfRowsDisplayed = driver
-				.findElements(By.xpath("//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div/div/div/p"))
+				.findElements(By.xpath("//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div[1]/div[2]/span"))
 				.size();
 		System.out.println("ROWS :- " + numberOfRowsDisplayed);
 		for (int row = 1; row <= numberOfRowsDisplayed; row++) {
 			String sourceNamefromUI = driver.findElement(By.xpath(
-					"//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div[" + row + "]/div/div/p"))
+					"//div[contains(@class,'MuiDataGrid-virtualScrollerRenderZone')]/div["+row+"]/div[2]/span"))
 					.getText();
 			System.out.println("source name from ui :- " + sourceNamefromUI);
 			if (sourceNamefromUI.equalsIgnoreCase(sourceName)) {

@@ -77,12 +77,12 @@ public class Creating_The_Govern_Def extends CommonAction {
 	
 	@Given("Click on Data Quality tab and Verify that {string} is present or not")
 	public void click_on_data_quality_tab_and_verify_that_is_present_or_not(String inputName) {
-	    
+		creatGovAction.click_on_data_quality_tab_and_verify_that_is_present_or_not(inputName);
 	}
 
 	@Then("Verify that {string} is deleted successfully")
 	public void verify_that_is_deleted_successfully(String inputName) {
-	    
+		creatGovAction.verify_that_is_deleted_successfully(inputName);
 	}
 
 	
