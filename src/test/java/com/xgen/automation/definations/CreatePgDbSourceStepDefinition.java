@@ -1,15 +1,13 @@
 package com.xgen.automation.definations;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 import com.xgen.automation.actions.CreatePostgresDBSource;
-import com.xgen.automation.base.CommonAction;
 
-public class CreatePgDbSourceStepDefinition extends CommonAction {
+public class CreatePgDbSourceStepDefinition  {
 	CreatePostgresDBSource createdbSource;
 	
 	public CreatePgDbSourceStepDefinition(){
-		createdbSource = new CreatePostgresDBSource(driver);
+		createdbSource = new CreatePostgresDBSource();
 	}
 	
 	@When("the user Click on Connect Icon")
@@ -99,15 +97,5 @@ public class CreatePgDbSourceStepDefinition extends CommonAction {
 	    
 	}
 	
-	// @Before
-		public void setUpp() {
-
-			startChromeDriver();
-		}
-
-		//@After
-		public void tearDownn() {
-
-			quit();
-		}
+	
 }
